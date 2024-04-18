@@ -177,6 +177,7 @@ void ParkingCitations::readFile() {
 }
 
 // take in one parameter and its corresponding category, search through sorted vector for matches, add and return to searched vector
+// referenced https://www.geeksforgeeks.org/binary-search/
 std::vector<ParkingCitation> ParkingCitations::binarySearch(int option, std::string parameter, std::vector<ParkingCitation>& sorted, std::vector<ParkingCitation>& searched) {
 	int left_index = 0;
 	int right_index = sorted.size() - 1;
