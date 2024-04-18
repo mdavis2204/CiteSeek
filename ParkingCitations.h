@@ -104,7 +104,7 @@ void ParkingCitations::readFile() {
 		std::string temp;
 
 		int column = 0;
-		int count = 0;
+		
 		// read line by line
 		while (file.is_open()) {
 			std::getline(file, line);
