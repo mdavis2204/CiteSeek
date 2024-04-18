@@ -69,7 +69,6 @@ public:
 	ParkingCitations();
 	void readFile();
 	std::vector<ParkingCitation> binarySearch(int option, std::string parameter, std::vector<ParkingCitation>& sorted, std::vector<ParkingCitation>& searched);
-
 	std::vector<ParkingCitation> getCitations();
 };
 
@@ -177,7 +176,7 @@ void ParkingCitations::readFile() {
 	}
 }
 
-// select one option to search through sorted vector for parameter, return vector with matches
+// take in one parameter and its corresponding category, search through sorted vector for matches, add and return to searched vector
 std::vector<ParkingCitation> ParkingCitations::binarySearch(int option, std::string parameter, std::vector<ParkingCitation>& sorted, std::vector<ParkingCitation>& searched) {
 	int left_index = 0;
 	int right_index = sorted.size() - 1;
