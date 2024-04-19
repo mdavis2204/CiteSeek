@@ -776,6 +776,10 @@ namespace Project3 {
     // FUNCTIONS I WROTE ----------------------------------------------------------------------------------------------------------
     // sorts the vector using the two methods and then searches using binary search until no elements remain in the list that have that attribute. these removed objects are placed into the class vector (the modified one)
     void MultiSort() {
+	    // read in and store csv file
+		ParkingCitations obj1;
+	    	obj1.readFile();
+	    // empty vector to store vector after binary search
 		std::vector<ParkingCitation> searched_vector = {};
         if (inputplateNumber != "") {
             // call your sort function on the class vector (the modified one. not the initial one) and set equal to the class vector (see previous page (WelcomePage.h) for the vector stuff)
