@@ -776,16 +776,61 @@ namespace Project3 {
     // FUNCTIONS I WROTE ----------------------------------------------------------------------------------------------------------
     // sorts the vector using the two methods and then searches using binary search until no elements remain in the list that have that attribute. these removed objects are placed into the class vector (the modified one)
     void MultiSort() {
+		std::vector<ParkingCitation> searched_vector = {};
         if (inputplateNumber != "") {
             // call your sort function on the class vector (the modified one. not the initial one) and set equal to the class vector (see previous page (WelcomePage.h) for the vector stuff)
             // then search
             // your search should push these objects with the attributes to a new vector (List in .NET)
-            // set your list equal to the class list so it may be used in the rest of the sorts/searches 
+            // set your list equal to the class list so it may be used in the rest of the sorts/searches
+
+			// binarySearch(0, inputplateNumber, [insert sorted vector], searched_vector);
         }
         if (inputstate != "") {
            // same process
+			
+			// binarySearch(1, inputstate, [insert sorted vector], searched_vector);
         }
         // continue with this logic for all the attributes (basically just saying if it is "", we don't sort by it)
+		if (inputcarMake != "") {
+           // binarySearch(2, inputcarMake, [insert sorted vector], searched_vector);
+        }
+		if (inputcarStyle != "") {
+           // binarySearch(3, inputcarStyle, [insert sorted vector], searched_vector);
+        }
+		if (inputcolor != "") {
+           // binarySearch(4, inputcolor, [insert sorted vector], searched_vector);
+        }
+		if (inputLocation != "") {
+           // binarySearch(5, inputLocation, [insert sorted vector], searched_vector);
+        }
+		if (inputViolation != "") {
+           // binarySearch(6, inputViolation, [insert sorted vector], searched_vector);
+        }
+        // continue with this logic for all the attributes (basically just saying if it is "", we don't sort by it)
+		if (inputFine != "") {
+			float convertedInputFine = Convert::ToSingle(inputFine);
+           // binarySearch(7, convertedInputFine, [insert sorted vector], searched_vector);
+        }
+		if (inputYear != "") {
+			int convertedInputYear = Convert::ToInt32(inputYear);
+           // binarySearch(8, convertedInputYear, [insert sorted vector], searched_vector);
+        }
+		if (inputMonth != "") {
+			int convertedInputMonth = Convert::ToInt32(inputMonth);
+           // binarySearch(9, convertedInputMonth, [insert sorted vector], searched_vector);
+        }
+		if (inputDay != "") {
+			int convertedInputDay = Convert::ToInt32(inputDay);
+           // binarySearch(10, convertedInputDay, [insert sorted vector], searched_vector);
+        }
+		if (inputHour != "") {
+			int convertedInputHour = Convert::ToInt32(inputHour);
+           // binarySearch(11, convertedInputHour, [insert sorted vector], searched_vector);
+        }
+		if (inputMinute != "") {
+			int convertedInputMinute = Convert::ToInt32(inputMinute);
+           // binarySearch(12, convertedInputMinute, [insert sorted vector], searched_vector);
+        }
     }
 
 
@@ -817,7 +862,7 @@ namespace Project3 {
 
 	// take in one parameter and its corresponding category, search through inputted sorted vector for matches, add to empty searched vector and return
 	// referenced https://www.geeksforgeeks.org/binary-search/
-	std::vector<ParkingCitation> ParkingCitations::binarySearch(int option, std::string parameter, std::vector<ParkingCitation>& sorted, std::vector<ParkingCitation>& searched) {
+	std::vector<ParkingCitation> binarySearch(int option, std::string parameter, std::vector<ParkingCitation>& sorted, std::vector<ParkingCitation>& searched) {
 		int left_index = 0;
 		int right_index = sorted.size() - 1;
 		int middle_index;
@@ -840,10 +885,6 @@ namespace Project3 {
 				else if (sorted[middle_index].number_plate > parameter) {
 					right_index = middle_index - 1;
 				}
-
-				else {
-					return searched;
-				}
 			}
 
 			// search and compare state
@@ -854,16 +895,12 @@ namespace Project3 {
 					binarySearch(option, parameter, sorted, searched);
 				}
 
-				if (sorted[middle_index].state < parameter) {
+				else if (sorted[middle_index].state < parameter) {
 					left_index = middle_index + 1;
 				}
 
-				if (sorted[middle_index].state > parameter) {
+				else if (sorted[middle_index].state > parameter) {
 					right_index = middle_index - 1;
-				}
-
-				else {
-					return searched;
 				}
 			}
 		
@@ -875,16 +912,12 @@ namespace Project3 {
 					binarySearch(option, parameter, sorted, searched);
 				}
 
-				if (sorted[middle_index].car_make < parameter) {
+				else if (sorted[middle_index].car_make < parameter) {
 					left_index = middle_index + 1;
 				}
 
-				if (sorted[middle_index].car_make > parameter) {
+				else if (sorted[middle_index].car_make > parameter) {
 					right_index = middle_index - 1;
-				}
-
-				else {
-					return searched;
 				}
 			}
 
@@ -896,16 +929,12 @@ namespace Project3 {
 					binarySearch(option, parameter, sorted, searched);
 				}
 
-				if (sorted[middle_index].car_style < parameter) {
+				else if (sorted[middle_index].car_style < parameter) {
 					left_index = middle_index + 1;
 				}
 
-				if (sorted[middle_index].car_style > parameter) {
+				else if (sorted[middle_index].car_style > parameter) {
 					right_index = middle_index - 1;
-				}
-
-				else {
-					return searched;
 				}
 			}
 
@@ -917,16 +946,12 @@ namespace Project3 {
 					binarySearch(option, parameter, sorted, searched);
 				}
 
-				if (sorted[middle_index].car_color < parameter) {
+				else if (sorted[middle_index].car_color < parameter) {
 					left_index = middle_index + 1;
 				}
 
-				if (sorted[middle_index].car_color > parameter) {
+				else if (sorted[middle_index].car_color > parameter) {
 					right_index = middle_index - 1;
-				}
-
-				else {
-					return searched;
 				}
 			}
 
@@ -938,16 +963,12 @@ namespace Project3 {
 					binarySearch(option, parameter, sorted, searched);
 				}
 
-				if (sorted[middle_index].location < parameter) {
+				else if (sorted[middle_index].location < parameter) {
 					left_index = middle_index + 1;
 				}
 
-				if (sorted[middle_index].location > parameter) {
+				else if (sorted[middle_index].location > parameter) {
 					right_index = middle_index - 1;
-				}
-
-				else {
-					return searched;
 				}
 			}
 
@@ -959,16 +980,12 @@ namespace Project3 {
 					binarySearch(option, parameter, sorted, searched);
 				}
 
-				if (sorted[middle_index].violation < parameter) {
+				else if (sorted[middle_index].violation < parameter) {
 					left_index = middle_index + 1;
 				}
 
-				if (sorted[middle_index].violation > parameter) {
+				else if (sorted[middle_index].violation > parameter) {
 					right_index = middle_index - 1;
-				}
-
-				else {
-					return searched;
 				}
 			}
 
@@ -980,16 +997,12 @@ namespace Project3 {
 					binarySearch(option, parameter, sorted, searched);
 				}
 
-				if (sorted[middle_index].fine < std::stof(parameter)) {
+				else if (sorted[middle_index].fine < std::stof(parameter)) {
 					left_index = middle_index + 1;
 				}
 
-				if (sorted[middle_index].fine > std::stof(parameter)) {
+				else if (sorted[middle_index].fine > std::stof(parameter)) {
 					right_index = middle_index - 1;
-				}
-
-				else {
-					return searched;
 				}
 			}
 
@@ -1001,16 +1014,12 @@ namespace Project3 {
 					binarySearch(option, parameter, sorted, searched);
 				}
 
-				if (sorted[middle_index].year < std::stoi(parameter)) {
+				else if (sorted[middle_index].year < std::stoi(parameter)) {
 					left_index = middle_index + 1;
 				}
 
-				if (sorted[middle_index].year > std::stoi(parameter)) {
+				else if (sorted[middle_index].year > std::stoi(parameter)) {
 					right_index = middle_index - 1;
-				}
-
-				else {
-					return searched;
 				}
 			}
 
@@ -1022,16 +1031,12 @@ namespace Project3 {
 					binarySearch(option, parameter, sorted, searched);
 				}
 
-				if (sorted[middle_index].month < std::stoi(parameter)) {
+				else if (sorted[middle_index].month < std::stoi(parameter)) {
 					left_index = middle_index + 1;
 				}
 
-				if (sorted[middle_index].month > std::stoi(parameter)) {
+				else if (sorted[middle_index].month > std::stoi(parameter)) {
 					right_index = middle_index - 1;
-				}
-
-				else {
-					return searched;
 				}
 			}
 
@@ -1043,16 +1048,12 @@ namespace Project3 {
 					binarySearch(option, parameter, sorted, searched);
 				}
 	
-				if (sorted[middle_index].day < std::stoi(parameter)) {
+				else if (sorted[middle_index].day < std::stoi(parameter)) {
 					left_index = middle_index + 1;
 				}
 
-				if (sorted[middle_index].day > std::stoi(parameter)) {
+				else if (sorted[middle_index].day > std::stoi(parameter)) {
 					right_index = middle_index - 1;
-				}
-
-				else {
-					return searched;
 				}
 			}
 
@@ -1064,16 +1065,12 @@ namespace Project3 {
 					binarySearch(option, parameter, sorted, searched);
 				}
 
-				if (sorted[middle_index].time_hour < std::stoi(parameter)) {
+				else if (sorted[middle_index].time_hour < std::stoi(parameter)) {
 					left_index = middle_index + 1;
 				}
 
-				if (sorted[middle_index].time_hour > std::stoi(parameter)) {
+				else if (sorted[middle_index].time_hour > std::stoi(parameter)) {
 					right_index = middle_index - 1;
-				}
-
-				else {
-					return searched;
 				}
 			}
 
@@ -1085,16 +1082,12 @@ namespace Project3 {
 					binarySearch(option, parameter, sorted, searched);
 				}
 	
-				if (sorted[middle_index].time_minute < std::stoi(parameter)) {
+				else if (sorted[middle_index].time_minute < std::stoi(parameter)) {
 					left_index = middle_index + 1;
 				}
 
-				if (sorted[middle_index].time_minute > std::stoi(parameter)) {
+				else if (sorted[middle_index].time_minute > std::stoi(parameter)) {
 					right_index = middle_index - 1;
-				}
-
-				else {
-					return searched;
 				}
 			}
 		}
