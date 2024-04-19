@@ -1,6 +1,6 @@
 #pragma once
 #include "ResultPage.h"
-
+#include "ParkingCitations.h"
 
 namespace Project3 {
 
@@ -814,6 +814,291 @@ namespace Project3 {
     // This time needs to be converted to a double^ type, reference ResultPage.h for an example of conversion
 
     // FOR MATTHEW DONG: You can integrate your search here. 
+
+    // take in one parameter and its corresponding category, search through inputted sorted vector for matches, add to empty searched vector and return
+    // referenced https://www.geeksforgeeks.org/binary-search/
+    std::vector<ParkingCitation> binarySearch(int option, std::string parameter, std::vector<ParkingCitation>& sorted, std::vector<ParkingCitation>& searched) {
+	    int left_index = 0;
+	    int right_index = sorted.size() - 1;
+    	int middle_index;
+	
+    	while (left_index <= right_index) {
+	    	middle_index = (left_index + (right_index - left_index)) / 2;
+
+	    	// search and compare number plate
+	    	if (option == 0) {
+		    	if (sorted[middle_index].number_plate == parameter) {
+		    	    searched.push_back(sorted[middle_index]);
+		    		sorted.erase(sorted.begin() + middle_index);
+		        	binarySearch(option, parameter, sorted, searched);
+			    }
+    
+			    else if (sorted[middle_index].number_plate < parameter) {
+			    	left_index = middle_index + 1;
+		        }
+    
+			     else if (sorted[middle_index].number_plate > parameter) {
+			    	right_index = middle_index - 1;
+		        }
+
+		        else {
+		    		return searched;
+		    	}
+	        }
+
+		    // search and compare state
+	        else if (option == 1) {
+		        if (sorted[middle_index].state == parameter) {
+			        searched.push_back(sorted[middle_index]);
+			        sorted.erase(sorted.begin() + middle_index);
+			        binarySearch(option, parameter, sorted, searched);
+			    }
+
+			    if (sorted[middle_index].state < parameter) {
+			    	left_index = middle_index + 1;
+		    	}
+
+			    if (sorted[middle_index].state > parameter) {
+			    	right_index = middle_index - 1;
+			    }
+
+		    	else {
+		    		return searched;
+		    	}
+		    }
+		
+	    	// search and compare car make
+	    	else if (option == 2) {
+			    if (sorted[middle_index].car_make == parameter) {
+			    	searched.push_back(sorted[middle_index]);
+			    	sorted.erase(sorted.begin() + middle_index);
+			    	binarySearch(option, parameter, sorted, searched);
+			    }
+
+			    if (sorted[middle_index].car_make < parameter) {
+			    	left_index = middle_index + 1;
+			    }
+
+			    if (sorted[middle_index].car_make > parameter) {
+			    	right_index = middle_index - 1;
+			    }
+
+			    else {
+			    	return searched;
+		    	}
+		    }
+
+		    // search and compare car style
+		    else if (option == 3) {
+			    if (sorted[middle_index].car_style == parameter) {
+			    	searched.push_back(sorted[middle_index]);
+			    	sorted.erase(sorted.begin() + middle_index);
+			    	binarySearch(option, parameter, sorted, searched);
+		    	}
+
+			    if (sorted[middle_index].car_style < parameter) {
+			    	left_index = middle_index + 1;
+			    }
+
+			    if (sorted[middle_index].car_style > parameter) {
+			    	right_index = middle_index - 1;
+		    	}
+
+		    	else {
+		    		return searched;
+		    	}
+		    }
+
+	    	// search and compare car color
+	    	else if (option == 4) {
+		    	if (sorted[middle_index].car_color == parameter) {
+			    	searched.push_back(sorted[middle_index]);
+			    	sorted.erase(sorted.begin() + middle_index);
+		    		binarySearch(option, parameter, sorted, searched);
+		    	}
+
+		    	if (sorted[middle_index].car_color < parameter) {
+		    		left_index = middle_index + 1;
+		    	}
+
+			    if (sorted[middle_index].car_color > parameter) {
+			    	right_index = middle_index - 1;
+		    	}
+
+		    	else {
+			    	return searched;
+		    	}
+		    }
+
+	    	// search and compare location
+	    	else if (option == 5) {
+			    if (sorted[middle_index].location == parameter) {
+			    	searched.push_back(sorted[middle_index]);
+			    	sorted.erase(sorted.begin() + middle_index);
+			    	binarySearch(option, parameter, sorted, searched);
+			    }
+
+		    	if (sorted[middle_index].location < parameter) {
+			    	left_index = middle_index + 1;
+			    }
+
+			    if (sorted[middle_index].location > parameter) {
+			    	right_index = middle_index - 1;
+			    }
+
+			    else {
+			    	return searched;
+			    }
+		    }
+
+		    // search and compare violation
+		    else if (option == 6) {
+			    if (sorted[middle_index].violation == parameter) {
+			    	searched.push_back(sorted[middle_index]);
+			    	sorted.erase(sorted.begin() + middle_index);
+			    	binarySearch(option, parameter, sorted, searched);
+			    }
+
+			    if (sorted[middle_index].violation < parameter) {
+			    	left_index = middle_index + 1;
+			    }
+
+			    if (sorted[middle_index].violation > parameter) {
+			    	right_index = middle_index - 1;
+			    }
+
+			    else {
+			    	return searched;
+			    }
+		    }
+
+		    // search and compare fine
+		    else if (option == 7) {
+			    if (sorted[middle_index].fine == std::stof(parameter)) {
+			    	searched.push_back(sorted[middle_index]);
+			    	sorted.erase(sorted.begin() + middle_index);
+			    	binarySearch(option, parameter, sorted, searched);
+			    }
+
+			    if (sorted[middle_index].fine < std::stof(parameter)) {
+			    	left_index = middle_index + 1;
+			    }
+
+			    if (sorted[middle_index].fine > std::stof(parameter)) {
+			    	right_index = middle_index - 1;
+			    }
+
+			    else {
+			    	return searched;
+		    	}
+		    }
+
+		    // search and compare year
+		    else if (option == 8) {
+			    if (sorted[middle_index].year == std::stoi(parameter)) {
+				    searched.push_back(sorted[middle_index]);
+				    sorted.erase(sorted.begin() + middle_index);
+			    	binarySearch(option, parameter, sorted, searched);
+			    }
+
+			    if (sorted[middle_index].year < std::stoi(parameter)) {
+			    	left_index = middle_index + 1;
+			    }
+    
+			    if (sorted[middle_index].year > std::stoi(parameter)) {
+			    	right_index = middle_index - 1;
+			    }
+
+			    else {
+			    	return searched;
+			    }
+		    }
+
+		    // search and compare month
+		    else if (option == 9) {
+			    if (sorted[middle_index].month == std::stoi(parameter)) {
+				    searched.push_back(sorted[middle_index]);
+				    sorted.erase(sorted.begin() + middle_index);
+				    binarySearch(option, parameter, sorted, searched);
+			    }
+
+			    if (sorted[middle_index].month < std::stoi(parameter)) {
+			    	left_index = middle_index + 1;
+			    }
+
+			    if (sorted[middle_index].month > std::stoi(parameter)) {
+			    	right_index = middle_index - 1;
+			    }
+
+			    else {
+			    	return searched;
+			    }
+		    }
+
+		    // search and compare day
+		    else if (option == 10) {
+			    if (sorted[middle_index].day == std::stoi(parameter)) {
+			    	searched.push_back(sorted[middle_index]);
+			    	sorted.erase(sorted.begin() + middle_index);
+			    	binarySearch(option, parameter, sorted, searched);
+			    }
+
+			    if (sorted[middle_index].day < std::stoi(parameter)) {
+			    	left_index = middle_index + 1;
+			    }
+    
+			    if (sorted[middle_index].day > std::stoi(parameter)) {
+			    	right_index = middle_index - 1;
+			    }
+
+			    else {
+			    	return searched;
+		    	}
+		    }
+
+		    // search and compare time hour
+		    else if (option == 11) {
+			    if (sorted[middle_index].time_hour == std::stoi(parameter)) {
+			    	searched.push_back(sorted[middle_index]);
+			    	sorted.erase(sorted.begin() + middle_index);
+			    	binarySearch(option, parameter, sorted, searched);
+			    }
+
+			    if (sorted[middle_index].time_hour < std::stoi(parameter)) {
+			    	left_index = middle_index + 1;
+			    }
+
+			    if (sorted[middle_index].time_hour > std::stoi(parameter)) {
+			    	right_index = middle_index - 1;
+			    }
+
+		    	else {
+			    	return searched;
+			    }
+		    }
+
+		    // search and compare time minute
+		    else if (option == 12) {
+			    if (sorted[middle_index].time_minute == std::stoi(parameter)) {
+				    searched.push_back(sorted[middle_index]);
+				    sorted.erase(sorted.begin() + middle_index);
+				    binarySearch(option, parameter, sorted, searched);
+			    }
+
+			    if (sorted[middle_index].time_minute < std::stoi(parameter)) {
+				    left_index = middle_index + 1;
+			    }
+
+			    if (sorted[middle_index].time_minute > std::stoi(parameter)) {
+		    		right_index = middle_index - 1;
+	    		}
+    
+    			else {
+				    return searched;
+			    }
+		    }
+	    }
+    }
 
     private: System::Void LoginConfirmButton_Click(System::Object^ sender, System::EventArgs^ e) {
         if (PlateNumberTextbox->Text == "" && StateTextbox->Text == "" && CarMakeTextbox->Text == "" && CarStyleTextbox->Text == "" && ColorTextbox->Text == "" && LocationTextbox->Text == "" &&
