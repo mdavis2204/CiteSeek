@@ -779,9 +779,9 @@ namespace Project3 {
         List<double>^ doubleList = gcnew List<double>();
         doubleList = MultiSort(inputplateNumber, inputstate, inputcarMake, inputcarStyle, inputcolor, inputLocation,
             inputViolation, inputFine, inputYear, inputMonth, inputDay, inputHour, inputMinute);
-        for (int i = 0; doubleList->Count; i++) {
-            
-        }
+        numCitations = doubleList[0];
+        mergeTime = doubleList[1];
+        quickTime = doubleList[2];
     }
 
     void UpdateWelcomePanelText()
