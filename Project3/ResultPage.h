@@ -18,7 +18,7 @@ namespace Project3 {
 			InitializeComponent();
 		}
 		// constructor to bring over the two sort times as well as the number of citations (cars) that match all the attributes
-		ResultPage(double^ mergeTime, double^ quickTime, int^ numCitations)
+		ResultPage(double^ mergeTime, double^ quickTime, double^ numCitations)
 		{
 			InitializeComponent();
 			this->mergeTime = mergeTime;
@@ -174,13 +174,13 @@ namespace Project3 {
 	// FOR TEAMMATES: These are the variables we are working with.
 	double^ mergeTime = 1.0; // This is the time taken to complete ALL merge sorts, 1.0 is a filler value
 	double^ quickTime = 1.0; // This is the time taken to complete ALL quick sorts, 1.0 is a filler value
-	int^ numCitations = 1; // This is the finalCitations.size() (or for Winforms its .count() for a List object) I was talking about before, 1 is a filler value
+	double^ numCitations = 1.0; // This is the finalCitations.size() (or for Winforms its .count() for a List object) I was talking about before, 1 is a filler value
 
 	// These conversions are needed because .NET objects use different handles than regular C++, so a bit more complicated to do easy conversions
 	// Convert double and int handles to native types, 
 	double mergeTimeValue = *mergeTime;
 	double quickTimeValue = *quickTime;
-	int numCitationsValue = *numCitations;
+	double numCitationsValue = *numCitations;
 
 	// Convert native types to strings
 	System::String^ mergeTimeString = mergeTimeValue.ToString();

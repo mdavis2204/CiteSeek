@@ -1,6 +1,7 @@
 #pragma once
 #include "ResultPage.h"
 #include "ParkingCitations.h"
+#include "MultiSort.h"
 
 namespace Project3 {
 
@@ -755,7 +756,7 @@ namespace Project3 {
     String^ inputName;
     double^ mergeTime;
     double^ quickTime;
-    int^ numCitations;
+    double^ numCitations;
     
     // these variables are what the user inputs into the various textboxes
     String^ inputplateNumber;
@@ -774,66 +775,14 @@ namespace Project3 {
 
     // FUNCTIONS I WROTE ----------------------------------------------------------------------------------------------------------
     // sorts the vector using the two methods and then searches using binary search until no elements remain in the list that have that attribute. these removed objects are placed into the class vector (the modified one)
-    void MultiSort() {
-	    // empty vector to store vector after binary search
-		std::vector<ParkingCitation> searched_vector = {};
-        if (inputplateNumber != "") {
-            // call your sort function on the class vector (the modified one. not the initial one) and set equal to the class vector (see previous page (WelcomePage.h) for the vector stuff)
-            // then search
-            // your search should push these objects with the attributes to a new vector (List in .NET)
-            // set your list equal to the class list so it may be used in the rest of the sorts/searches
-
-
-			// binarySearch(0, inputplateNumber, [insert sorted vector], searched_vector);
-        }
-        if (inputstate != "") {
-           // same process
-			
-			// binarySearch(1, inputstate, [insert sorted vector], searched_vector);
-        }
-        // continue with this logic for all the attributes (basically just saying if it is "", we don't sort by it)
-		if (inputcarMake != "") {
-           // binarySearch(2, inputcarMake, [insert sorted vector], searched_vector);
-        }
-		if (inputcarStyle != "") {
-           // binarySearch(3, inputcarStyle, [insert sorted vector], searched_vector);
-        }
-		if (inputcolor != "") {
-           // binarySearch(4, inputcolor, [insert sorted vector], searched_vector);
-        }
-		if (inputLocation != "") {
-           // binarySearch(5, inputLocation, [insert sorted vector], searched_vector);
-        }
-		if (inputViolation != "") {
-           // binarySearch(6, inputViolation, [insert sorted vector], searched_vector);
-        }
-        // continue with this logic for all the attributes (basically just saying if it is "", we don't sort by it)
-		if (inputFine != "") {
-			float convertedInputFine = Convert::ToSingle(inputFine);
-           // binarySearch(7, convertedInputFine, [insert sorted vector], searched_vector);
-        }
-		if (inputYear != "") {
-			int convertedInputYear = Convert::ToInt32(inputYear);
-           // binarySearch(8, convertedInputYear, [insert sorted vector], searched_vector);
-        }
-		if (inputMonth != "") {
-			int convertedInputMonth = Convert::ToInt32(inputMonth);
-           // binarySearch(9, convertedInputMonth, [insert sorted vector], searched_vector);
-        }
-		if (inputDay != "") {
-			int convertedInputDay = Convert::ToInt32(inputDay);
-           // binarySearch(10, convertedInputDay, [insert sorted vector], searched_vector);
-        }
-		if (inputHour != "") {
-			int convertedInputHour = Convert::ToInt32(inputHour);
-           // binarySearch(11, convertedInputHour, [insert sorted vector], searched_vector);
-        }
-		if (inputMinute != "") {
-			int convertedInputMinute = Convert::ToInt32(inputMinute);
-           // binarySearch(12, convertedInputMinute, [insert sorted vector], searched_vector);
+    void MultiSortCaller() {
+        List<double>^ doubleList = gcnew List<double>();
+        doubleList = MultiSort(inputplateNumber, inputstate, inputcarMake, inputcarStyle, inputcolor, inputLocation,
+            inputViolation, inputFine, inputYear, inputMonth, inputDay, inputHour, inputMinute);
+        for (int i = 0; doubleList->Count; i++) {
+            
         }
     }
-
 
     void UpdateWelcomePanelText()
     {
@@ -855,245 +804,6 @@ namespace Project3 {
     private: System::Void ResultPage_FormClosed(System::Object^ sender, FormClosedEventArgs^ e) {
         this->Close(); // Close the main page when the Result page is open
     }
-    
-    // FOR MATTHEW DAVIS: You can integrate your sorts here. Use a time library like <ctime> to track the time and increment it for each sort that is completed.
-    // This time needs to be converted to a double^ type, reference ResultPage.h for an example of conversion
-
-    // FOR MATTHEW DONG: You can integrate your search here. 
-
-	// take in one parameter and its corresponding category, search through inputted sorted vector for matches, add to empty searched vector and return
-	// referenced https://www.geeksforgeeks.org/binary-search/
-	std::vector<ParkingCitation> binarySearch(int option, std::string parameter, std::vector<ParkingCitation>& sorted, std::vector<ParkingCitation>& searched) {
-		int left_index = 0;
-		int right_index = sorted.size() - 1;
-		int middle_index;
-	
-		while (left_index <= right_index) {
-			middle_index = (left_index + (right_index - left_index)) / 2;
-
-			// search and compare number plate
-			if (option == 0) {
-				if (sorted[middle_index].number_plate == parameter) {
-					searched.push_back(sorted[middle_index]);
-					sorted.erase(sorted.begin() + middle_index);
-					binarySearch(option, parameter, sorted, searched);
-				}
-
-				else if (sorted[middle_index].number_plate < parameter) {
-					left_index = middle_index + 1;
-				}
-
-				else if (sorted[middle_index].number_plate > parameter) {
-					right_index = middle_index - 1;
-				}
-			}
-
-			// search and compare state
-			else if (option == 1) {
-				if (sorted[middle_index].state == parameter) {
-					searched.push_back(sorted[middle_index]);
-					sorted.erase(sorted.begin() + middle_index);
-					binarySearch(option, parameter, sorted, searched);
-				}
-
-				else if (sorted[middle_index].state < parameter) {
-					left_index = middle_index + 1;
-				}
-
-				else if (sorted[middle_index].state > parameter) {
-					right_index = middle_index - 1;
-				}
-			}
-		
-			// search and compare car make
-			else if (option == 2) {
-				if (sorted[middle_index].car_make == parameter) {
-					searched.push_back(sorted[middle_index]);
-					sorted.erase(sorted.begin() + middle_index);
-					binarySearch(option, parameter, sorted, searched);
-				}
-
-				else if (sorted[middle_index].car_make < parameter) {
-					left_index = middle_index + 1;
-				}
-
-				else if (sorted[middle_index].car_make > parameter) {
-					right_index = middle_index - 1;
-				}
-			}
-
-			// search and compare car style
-			else if (option == 3) {
-				if (sorted[middle_index].car_style == parameter) {
-					searched.push_back(sorted[middle_index]);
-					sorted.erase(sorted.begin() + middle_index);
-					binarySearch(option, parameter, sorted, searched);
-				}
-
-				else if (sorted[middle_index].car_style < parameter) {
-					left_index = middle_index + 1;
-				}
-
-				else if (sorted[middle_index].car_style > parameter) {
-					right_index = middle_index - 1;
-				}
-			}
-
-			// search and compare car color
-			else if (option == 4) {
-				if (sorted[middle_index].car_color == parameter) {
-					searched.push_back(sorted[middle_index]);
-					sorted.erase(sorted.begin() + middle_index);
-					binarySearch(option, parameter, sorted, searched);
-				}
-
-				else if (sorted[middle_index].car_color < parameter) {
-					left_index = middle_index + 1;
-				}
-
-				else if (sorted[middle_index].car_color > parameter) {
-					right_index = middle_index - 1;
-				}
-			}
-
-			// search and compare location
-			else if (option == 5) {
-				if (sorted[middle_index].location == parameter) {
-					searched.push_back(sorted[middle_index]);
-					sorted.erase(sorted.begin() + middle_index);
-					binarySearch(option, parameter, sorted, searched);
-				}
-
-				else if (sorted[middle_index].location < parameter) {
-					left_index = middle_index + 1;
-				}
-
-				else if (sorted[middle_index].location > parameter) {
-					right_index = middle_index - 1;
-				}
-			}
-
-			// search and compare violation
-			else if (option == 6) {
-				if (sorted[middle_index].violation == parameter) {
-					searched.push_back(sorted[middle_index]);
-					sorted.erase(sorted.begin() + middle_index);
-					binarySearch(option, parameter, sorted, searched);
-				}
-
-				else if (sorted[middle_index].violation < parameter) {
-					left_index = middle_index + 1;
-				}
-
-				else if (sorted[middle_index].violation > parameter) {
-					right_index = middle_index - 1;
-				}
-			}
-
-			// search and compare fine
-			else if (option == 7) {
-				if (sorted[middle_index].fine == std::stof(parameter)) {
-					searched.push_back(sorted[middle_index]);
-					sorted.erase(sorted.begin() + middle_index);
-					binarySearch(option, parameter, sorted, searched);
-				}
-
-				else if (sorted[middle_index].fine < std::stof(parameter)) {
-					left_index = middle_index + 1;
-				}
-
-				else if (sorted[middle_index].fine > std::stof(parameter)) {
-					right_index = middle_index - 1;
-				}
-			}
-
-			// search and compare year
-			else if (option == 8) {
-				if (sorted[middle_index].year == std::stoi(parameter)) {
-					searched.push_back(sorted[middle_index]);
-					sorted.erase(sorted.begin() + middle_index);
-					binarySearch(option, parameter, sorted, searched);
-				}
-
-				else if (sorted[middle_index].year < std::stoi(parameter)) {
-					left_index = middle_index + 1;
-				}
-
-				else if (sorted[middle_index].year > std::stoi(parameter)) {
-					right_index = middle_index - 1;
-				}
-			}
-
-			// search and compare month
-			else if (option == 9) {
-				if (sorted[middle_index].month == std::stoi(parameter)) {
-					searched.push_back(sorted[middle_index]);
-					sorted.erase(sorted.begin() + middle_index);
-					binarySearch(option, parameter, sorted, searched);
-				}
-
-				else if (sorted[middle_index].month < std::stoi(parameter)) {
-					left_index = middle_index + 1;
-				}
-
-				else if (sorted[middle_index].month > std::stoi(parameter)) {
-					right_index = middle_index - 1;
-				}
-			}
-
-			// search and compare day
-			else if (option == 10) {
-				if (sorted[middle_index].day == std::stoi(parameter)) {
-					searched.push_back(sorted[middle_index]);
-					sorted.erase(sorted.begin() + middle_index);
-					binarySearch(option, parameter, sorted, searched);
-				}
-	
-				else if (sorted[middle_index].day < std::stoi(parameter)) {
-					left_index = middle_index + 1;
-				}
-
-				else if (sorted[middle_index].day > std::stoi(parameter)) {
-					right_index = middle_index - 1;
-				}
-			}
-
-			// search and compare time hour
-			else if (option == 11) {
-				if (sorted[middle_index].time_hour == std::stoi(parameter)) {
-					searched.push_back(sorted[middle_index]);
-					sorted.erase(sorted.begin() + middle_index);
-					binarySearch(option, parameter, sorted, searched);
-				}
-
-				else if (sorted[middle_index].time_hour < std::stoi(parameter)) {
-					left_index = middle_index + 1;
-				}
-
-				else if (sorted[middle_index].time_hour > std::stoi(parameter)) {
-					right_index = middle_index - 1;
-				}
-			}
-
-			// search and compare time minute
-			else if (option == 12) {
-				if (sorted[middle_index].time_minute == std::stoi(parameter)) {
-					searched.push_back(sorted[middle_index]);
-					sorted.erase(sorted.begin() + middle_index);
-					binarySearch(option, parameter, sorted, searched);
-				}
-	
-				else if (sorted[middle_index].time_minute < std::stoi(parameter)) {
-					left_index = middle_index + 1;
-				}
-
-				else if (sorted[middle_index].time_minute > std::stoi(parameter)) {
-					right_index = middle_index - 1;
-				}
-			}
-		}
-        return searched;
-	}
 
     private: System::Void LoginConfirmButton_Click(System::Object^ sender, System::EventArgs^ e) {
         if (PlateNumberTextbox->Text == "" && StateTextbox->Text == "" && CarMakeTextbox->Text == "" && CarStyleTextbox->Text == "" && ColorTextbox->Text == "" && LocationTextbox->Text == "" &&
