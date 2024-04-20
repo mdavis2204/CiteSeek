@@ -1,5 +1,6 @@
 #pragma once
 #include "MainPage.h"
+#include "ParkingCitations.h"
 #include <msclr\marshal_cppstd.h>
 #include <string>
 
