@@ -101,13 +101,13 @@ void ParkingCitations::readFile() {
 		std::string line;
 		std::string data;
 		std::string temp;
-
-		int column = 0;
 		
 		// read line by line
-		while (file.is_open()) {
+		while (!file.eof()) {
 			std::getline(file, line);
 			std::istringstream s(line);
+
+			int column = 0;
 
 			while (std::getline(s, data, ',')) {
 				if (column == 0) {
@@ -170,7 +170,6 @@ void ParkingCitations::readFile() {
 				column++;
 			}
 		}
-		
 		file.close();
 	}
 }

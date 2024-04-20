@@ -3,6 +3,7 @@
 #include "ParkingCitations.h"
 #include <msclr\marshal_cppstd.h>
 #include <string>
+#include <vector>
 
 namespace Project3 {
 
@@ -23,7 +24,8 @@ namespace Project3 {
 			InitializeComponent();
 			// read in and store csv file
 			ParkingCitations obj1;
-	    		obj1.readFile();
+	    	obj1.readFile();
+			vector<ParkingCitation> classCitationVect= obj1.getCitations();
 		}
 
 	protected:
@@ -63,6 +65,7 @@ namespace Project3 {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(WelcomePage::typeid));
 			this->WelcomePanel = (gcnew System::Windows::Forms::Label());
 			this->WelcomePanelRight = (gcnew System::Windows::Forms::Panel());
+			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->QuickSortLink = (gcnew System::Windows::Forms::LinkLabel());
@@ -79,7 +82,6 @@ namespace Project3 {
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->AboutText = (gcnew System::Windows::Forms::Label());
 			this->AboutTitle = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->WelcomePanelRight->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->NameBackgroundPanel->SuspendLayout();
@@ -121,6 +123,18 @@ namespace Project3 {
 			this->WelcomePanelRight->Size = System::Drawing::Size(875, 681);
 			this->WelcomePanelRight->TabIndex = 1;
 			this->WelcomePanelRight->Click += gcnew System::EventHandler(this, &WelcomePage::otherClick);
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->BackColor = System::Drawing::Color::Transparent;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Segoe UI", 6.2F));
+			this->label6->ForeColor = System::Drawing::Color::Yellow;
+			this->label6->Location = System::Drawing::Point(300, 441);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(291, 13);
+			this->label6->TabIndex = 10;
+			this->label6->Text = L"Note: These links will take you to your default browser.";
 			// 
 			// label5
 			// 
@@ -331,18 +345,6 @@ namespace Project3 {
 			this->AboutTitle->Text = L"About This Program";
 			this->AboutTitle->Click += gcnew System::EventHandler(this, &WelcomePage::otherClick);
 			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->BackColor = System::Drawing::Color::Transparent;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Segoe UI", 6.2F));
-			this->label6->ForeColor = System::Drawing::Color::Yellow;
-			this->label6->Location = System::Drawing::Point(300, 441);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(291, 13);
-			this->label6->TabIndex = 10;
-			this->label6->Text = L"Note: These links will take you to your default browser.";
-			// 
 			// WelcomePage
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -370,14 +372,18 @@ namespace Project3 {
 #pragma endregion
 
 		// VARIABLES I DECLARED -------------------------------------------------------------------------------------------------------
-				// FOR MATTHEW DONG: create a vector<Citations> that stores the initial list/vector of Citations, then modify the paramaterized constructor for MainPage. 
-				// Follow the example of how String^ name is carried over
-				// Also I think this UI absolutely hates non-modified types so you may need to adjust your code to work with List, a .NET storage container that works basically the same way
-				// List<String^>^ newList = gcnew List<String^>(); is how you declare a new .NET List
-				// here is the documentation: https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-8.0
-
 
 		// FUNCTIONS I WROTE ----------------------------------------------------------------------------------------------------------
+	// Define a non-managed function to convert vector to List
+		template<typename T>
+		List<T>^ VectorToList(const std::vector<T>& inVector) {
+			List<T>^ outList = gcnew List<T>();
+			for (auto& item : inVector) {
+				outList->Add(item);
+			}
+			return outList;
+		}
+
 	private: System::Void WelcomePage_Load(System::Object^ sender, System::EventArgs^ e) {
 		// Add event handler for name text
 		NameTextBox->KeyDown += gcnew KeyEventHandler(this, &WelcomePage::NameTextBox_KeyDown);
@@ -438,9 +444,5 @@ namespace Project3 {
 		System::Diagnostics::Process::Start("https://www.geeksforgeeks.org/quick-sort/");
 	}
 		   // ---------------------------------------------------------------------------------------------------------------------------------
-
-		   // FOR MATTHEW DONG: Here is where you can add your parsing function. again you may need to adjust your code to a Link .NET structure instead of a vector. 
-		   //here is the documentation again: https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-8.0
-
 	};
 }

@@ -1092,6 +1092,7 @@ namespace Project3 {
 				}
 			}
 		}
+        return searched;
 	}
 
     private: System::Void LoginConfirmButton_Click(System::Object^ sender, System::EventArgs^ e) {

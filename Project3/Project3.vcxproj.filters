@@ -29,5 +29,11 @@
     <ClInclude Include="ResultPage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ParkingCitations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sorting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

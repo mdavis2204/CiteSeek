@@ -126,9 +126,11 @@
     <ClInclude Include="MainPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ParkingCitations.h" />
     <ClInclude Include="ResultPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Sorting.h" />
     <ClInclude Include="WelcomePage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
