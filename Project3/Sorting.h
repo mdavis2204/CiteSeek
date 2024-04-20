@@ -32,6 +32,12 @@ void merge(vector<t>& input, int left, int right){
     input_index ++;
   }
 
+  while(left_index < left_size){
+    input[input_index] = left_vect[left_index];
+    left_index ++;
+    input_index ++;
+  }
+
   while(right_index < right_size){
     input[input_index] = right_vect[right_index];
     right_index ++;
