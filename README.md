@@ -16,6 +16,8 @@
 
 ### In addition, users must download the latest version of CiteSeek from this GitHub Repository.
 
+## Once these steps have been completed, simply run the .exe and enjoy searching!
+
 ## Credits 
 
 ### Citations for code can be found in main.cpp
