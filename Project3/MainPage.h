@@ -109,7 +109,6 @@ namespace Project3 {
     private: System::Windows::Forms::Label^ MinuteEXLabel;
     private: System::Windows::Forms::PictureBox^ pictureBox1;
     private: System::Windows::Forms::PictureBox^ MemePictureBox;
-
     private: System::Windows::Forms::Button^ LoginConfirmButton;
 
     // initializes each component. done automatically in Winforms
@@ -783,6 +782,7 @@ namespace Project3 {
             // then search
             // your search should push these objects with the attributes to a new vector (List in .NET)
             // set your list equal to the class list so it may be used in the rest of the sorts/searches
+
 
 			// binarySearch(0, inputplateNumber, [insert sorted vector], searched_vector);
         }
