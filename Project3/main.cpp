@@ -7,7 +7,7 @@ using namespace System::Windows::Forms;
 
 [STAThread]
 
-void main(array<String^>^ args) {
+void main(cli::array<String^>^ args) {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	Project3::WelcomePage welcomeForm;
