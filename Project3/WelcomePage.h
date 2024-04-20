@@ -20,6 +20,9 @@ namespace Project3 {
 		WelcomePage(void)
 		{
 			InitializeComponent();
+			// read in and store csv file
+			ParkingCitations obj1;
+	    		obj1.readFile();
 		}
 
 	protected:
