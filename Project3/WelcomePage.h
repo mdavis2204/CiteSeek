@@ -22,10 +22,6 @@ namespace Project3 {
 		WelcomePage(void)
 		{
 			InitializeComponent();
-			// read in and store csv file
-			ParkingCitations obj1;
-	    	obj1.readFile();
-			vector<ParkingCitation> classCitationVect= obj1.getCitations();
 		}
 
 	protected:
@@ -372,7 +368,7 @@ namespace Project3 {
 #pragma endregion
 
 		// VARIABLES I DECLARED -------------------------------------------------------------------------------------------------------
-
+		// 
 		// FUNCTIONS I WROTE ----------------------------------------------------------------------------------------------------------
 	// Define a non-managed function to convert vector to List
 		template<typename T>

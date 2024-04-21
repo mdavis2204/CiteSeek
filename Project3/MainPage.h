@@ -110,7 +110,8 @@ namespace Project3 {
     private: System::Windows::Forms::Label^ MinuteEXLabel;
     private: System::Windows::Forms::PictureBox^ pictureBox1;
     private: System::Windows::Forms::PictureBox^ MemePictureBox;
-    private: System::Windows::Forms::Button^ LoginConfirmButton;
+    private: System::Windows::Forms::Button^ SelectionConfirmButton;
+
 
     // initializes each component. done automatically in Winforms
     void InitializeComponent(void)
@@ -157,7 +158,7 @@ namespace Project3 {
         this->DayEXLabel = (gcnew System::Windows::Forms::Label());
         this->HourEXLabel = (gcnew System::Windows::Forms::Label());
         this->MinuteEXLabel = (gcnew System::Windows::Forms::Label());
-        this->LoginConfirmButton = (gcnew System::Windows::Forms::Button());
+        this->SelectionConfirmButton = (gcnew System::Windows::Forms::Button());
         this->MemePictureBox = (gcnew System::Windows::Forms::PictureBox());
         (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->MemePictureBox))->BeginInit();
         this->SuspendLayout();
@@ -664,21 +665,21 @@ namespace Project3 {
         this->MinuteEXLabel->TabIndex = 51;
         this->MinuteEXLabel->Text = L"ex: Integer from 1 to 60";
         // 
-        // LoginConfirmButton
+        // SelectionConfirmButton
         // 
-        this->LoginConfirmButton->BackColor = System::Drawing::Color::SlateGray;
-        this->LoginConfirmButton->Cursor = System::Windows::Forms::Cursors::Hand;
-        this->LoginConfirmButton->FlatAppearance->BorderSize = 0;
-        this->LoginConfirmButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-        this->LoginConfirmButton->Font = (gcnew System::Drawing::Font(L"Segoe UI", 7.8F));
-        this->LoginConfirmButton->ForeColor = System::Drawing::Color::White;
-        this->LoginConfirmButton->Location = System::Drawing::Point(317, 547);
-        this->LoginConfirmButton->Name = L"LoginConfirmButton";
-        this->LoginConfirmButton->Size = System::Drawing::Size(248, 46);
-        this->LoginConfirmButton->TabIndex = 53;
-        this->LoginConfirmButton->Text = L"Confirm";
-        this->LoginConfirmButton->UseVisualStyleBackColor = false;
-        this->LoginConfirmButton->Click += gcnew System::EventHandler(this, &MainPage::LoginConfirmButton_Click);
+        this->SelectionConfirmButton->BackColor = System::Drawing::Color::SlateGray;
+        this->SelectionConfirmButton->Cursor = System::Windows::Forms::Cursors::Hand;
+        this->SelectionConfirmButton->FlatAppearance->BorderSize = 0;
+        this->SelectionConfirmButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+        this->SelectionConfirmButton->Font = (gcnew System::Drawing::Font(L"Segoe UI", 7.8F));
+        this->SelectionConfirmButton->ForeColor = System::Drawing::Color::White;
+        this->SelectionConfirmButton->Location = System::Drawing::Point(317, 547);
+        this->SelectionConfirmButton->Name = L"SelectionConfirmButton";
+        this->SelectionConfirmButton->Size = System::Drawing::Size(248, 46);
+        this->SelectionConfirmButton->TabIndex = 53;
+        this->SelectionConfirmButton->Text = L"Confirm";
+        this->SelectionConfirmButton->UseVisualStyleBackColor = false;
+        this->SelectionConfirmButton->Click += gcnew System::EventHandler(this, &MainPage::SelectionConfirmButton_Click);
         // 
         // MemePictureBox
         // 
@@ -699,7 +700,7 @@ namespace Project3 {
         this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
         this->ClientSize = System::Drawing::Size(1262, 673);
         this->Controls->Add(this->MemePictureBox);
-        this->Controls->Add(this->LoginConfirmButton);
+        this->Controls->Add(this->SelectionConfirmButton);
         this->Controls->Add(this->MinuteEXLabel);
         this->Controls->Add(this->HourEXLabel);
         this->Controls->Add(this->DayEXLabel);
@@ -776,9 +777,13 @@ namespace Project3 {
     // FUNCTIONS I WROTE ----------------------------------------------------------------------------------------------------------
     // sorts the vector using the two methods and then searches using binary search until no elements remain in the list that have that attribute. these removed objects are placed into the class vector (the modified one)
     void MultiSortCaller() {
+        // read in and store csv file
+        ParkingCitations obj1;
+        obj1.readFile();
+        vector<ParkingCitation> classCitationVect = obj1.getCitations();
         List<double>^ doubleList = gcnew List<double>();
-        doubleList = MultiSort(inputplateNumber, inputstate, inputcarMake, inputcarStyle, inputcolor, inputLocation,
-            inputViolation, inputFine, inputYear, inputMonth, inputDay, inputHour, inputMinute);
+        doubleList = MultiSort(classCitationVect, inputplateNumber, inputstate, inputcarMake, inputcarStyle, inputcolor, inputLocation,
+        inputViolation, inputFine, inputYear, inputMonth, inputDay, inputHour, inputMinute);
         numCitations = doubleList[0];
         mergeTime = doubleList[1];
         quickTime = doubleList[2];
@@ -805,7 +810,7 @@ namespace Project3 {
         this->Close(); // Close the main page when the Result page is open
     }
 
-    private: System::Void LoginConfirmButton_Click(System::Object^ sender, System::EventArgs^ e) {
+    private: System::Void SelectionConfirmButton_Click(System::Object^ sender, System::EventArgs^ e) {
         if (PlateNumberTextbox->Text == "" && StateTextbox->Text == "" && CarMakeTextbox->Text == "" && CarStyleTextbox->Text == "" && ColorTextbox->Text == "" && LocationTextbox->Text == "" &&
             ViolationTextbox->Text == "" && FineTextbox->Text == "" && YearTextbox->Text == "" && MonthTextbox->Text == "" && DayTextbox->Text == "" && HourTextbox->Text == "" &&
             MinuteTextbox->Text == "") {

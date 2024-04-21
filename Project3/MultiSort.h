@@ -12,7 +12,7 @@ using namespace System::Collections::Generic;
 using namespace System::IO;
 using namespace msclr::interop;
 
-List<double>^ MultiSort(String^ inputplateNumber, String^ inputstate, String^ inputcarMake, String^ inputcarStyle, String^ inputcolor, String^ inputLocation,
+List<double>^ MultiSort(vector<ParkingCitation> inVector, String^ inputplateNumber, String^ inputstate, String^ inputcarMake, String^ inputcarStyle, String^ inputcolor, String^ inputLocation,
     String^ inputViolation, String^ inputFine, String^inputYear, String^ inputMonth, String^ inputDay, String^ inputHour, String^ inputMinute) {
 
     std::string plateNumber = marshal_as<std::string>(inputplateNumber);
@@ -30,8 +30,7 @@ List<double>^ MultiSort(String^ inputplateNumber, String^ inputstate, String^ in
     int minute = std::stoi(marshal_as<std::string>(inputMinute));
 
     // empty vector to store vector after binary search
-    std::vector<ParkingCitation> searched_vector;
-    std::vector<ParkingCitation> tempVector;
+    std::vector<ParkingCitation> searched_vector = inVector;
     if (inputplateNumber != "") {
         // call merge sort
         // call quick sort
