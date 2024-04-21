@@ -162,7 +162,7 @@ void binarySearch(int option, std::string parameter, std::vector<ParkingCitation
 	int middle_index;
 
 	while (left_index <= right_index) {
-		middle_index = (left_index + (right_index - left_index)) / 2;
+		middle_index = left_index + (right_index - left_index) / 2;
 
 		// search and compare number plate
 		if (option == 0) {
