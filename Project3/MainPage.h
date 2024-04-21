@@ -39,19 +39,22 @@ namespace Project3 {
             InitializeComponent();
             inputName = name;
             UpdateWelcomePanelText();
-            String^ inputplateNumber = PlateNumberTextbox->Text;
-            String^ inputstate = StateTextbox->Text;
-            String^ inputcarMake = CarMakeTextbox->Text;
-            String^ inputcarStyle = CarStyleTextbox->Text;
-            String^ inputcolor = ColorTextbox->Text;
-            String^ inputLocation = LocationTextbox->Text;
-            String^ inputViolation = ViolationTextbox->Text;
-            String^ inputFine = FineTextbox->Text;
-            String^ inputYear = YearTextbox->Text;
-            String^ inputMonth = MonthTextbox->Text;
-            String^ inputDay = DayTextbox->Text;
-            String^ inputHour = HourTextbox->Text;
-            String^ inputMinute = MinuteTextbox->Text;
+            inputplateNumber = PlateNumberTextbox->Text;
+            inputstate = StateTextbox->Text;
+            inputcarMake = CarMakeTextbox->Text;
+            inputcarStyle = CarStyleTextbox->Text;
+            inputcolor = ColorTextbox->Text;
+            inputLocation = LocationTextbox->Text;
+            inputViolation = ViolationTextbox->Text;
+            inputFine = FineTextbox->Text;
+            inputYear = YearTextbox->Text;
+            inputMonth = MonthTextbox->Text;
+            inputDay = DayTextbox->Text;
+            inputHour = HourTextbox->Text;
+            inputMinute = MinuteTextbox->Text;
+            mergeTime = 0.0;
+            quickTime = 0.0;
+            numCitations = 0.0;
         }
 
     protected:
@@ -784,9 +787,14 @@ namespace Project3 {
         List<double>^ doubleList = gcnew List<double>();
         doubleList = MultiSort(classCitationVect, inputplateNumber, inputstate, inputcarMake, inputcarStyle, inputcolor, inputLocation,
         inputViolation, inputFine, inputYear, inputMonth, inputDay, inputHour, inputMinute);
-        numCitations = doubleList[0];
-        mergeTime = doubleList[1];
-        quickTime = doubleList[2];
+
+        double^ managedNumCitations = gcnew double(doubleList[0]);
+        double^ managedMergeTime = gcnew double(doubleList[1]);
+        double^ managedQuickTime = gcnew double(doubleList[2]);
+
+        numCitations = *managedNumCitations;
+        mergeTime = *managedMergeTime;
+        quickTime = *managedQuickTime;
     }
 
     void UpdateWelcomePanelText()
@@ -817,7 +825,10 @@ namespace Project3 {
             MessageBox::Show("Please fill in at least one field!", "No Attribute Selected");
             return;
         }
+
+        MultiSortCaller();
         this->Hide();
+       // ResultPage^ resultPage = gcnew ResultPage(mergeTime, quickTime, numCitations);
         ResultPage^ resultPage = gcnew ResultPage(mergeTime, quickTime, numCitations);
         resultPage->FormClosed += gcnew FormClosedEventHandler(this, &MainPage::ResultPage_FormClosed);
         resultPage->ShowDialog();

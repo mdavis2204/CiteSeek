@@ -4,16 +4,59 @@
 #include "ParkingCitations.h"
 using namespace std;
 
+bool comparison(ParkingCitation& citation1, ParkingCitation& citation2, string& attribute) {
+	if (attribute == "number_plate") {
+		return citation1.number_plate < citation2.number_plate;
+	}
+	else if (attribute == "state") {
+		return citation1.state < citation2.state;
+	}
+	else if (attribute == "car_make") {
+		return citation1.car_make < citation2.car_make;
+	}
+	else if (attribute == "car_style") {
+		return citation1.car_style < citation2.car_style;
+	}
+	else if (attribute == "car_color") {
+		return citation1.car_color < citation2.car_color;
+	}
+	else if (attribute == "car_location") {
+		return citation1.location < citation2.location;
+	}
+	else if (attribute == "violation") {
+		return citation1.violation < citation2.violation;
+	}
+	else if (attribute == "fine") {
+		return citation1.fine < citation2.fine;
+	}
+	else if (attribute == "year") {
+		return citation1.year < citation2.year;
+	}
+	else if (attribute == "month") {
+		return citation1.month < citation2.month;
+	}
+	else if (attribute == "day") {
+		return citation1.day < citation2.day;
+	}
+	else if (attribute == "time_hour") {
+		return citation1.time_hour < citation2.time_hour;
+	}
+	else if (attribute == "time_minute") {
+		return citation1.time_minute < citation2.time_minute;
+	}
+	// default if there is a problem
+	return citation1.number_plate < citation2.number_plate;
+}
 
 // merge sort
-template <typename t>
-void merge(vector<t>& input, int left, int right){
+void merge(vector<ParkingCitation>& input, int left, int right, string attribute) {
+
   int middle = left + (right - left) / 2;
 
   int left_size = middle - left + 1;
   int right_size = right - middle;
 
-  vector<t> left_vect(left_size), right_vect(right_size);
+  vector<ParkingCitation> left_vect(left_size), right_vect(right_size);
 
   for(int i = 0; i < left_size; i ++){
     left_vect[i] = input[left + i];
@@ -24,7 +67,7 @@ void merge(vector<t>& input, int left, int right){
 
   int left_index = 0, right_index = 0, input_index = left;
   while(left_index < left_size && right_index < right_size){
-    if(left_vect[left_index] <= right_vect[right_index]){
+    if(comparison(left_vect[left_index], right_vect[right_index], attribute)){
       input[input_index] = left_vect[left_index];
       left_index ++;
     }
@@ -50,34 +93,16 @@ void merge(vector<t>& input, int left, int right){
 }
 
 template <typename t>
-void mergeSort(vector<t>& input, int left, int right){
+void mergeSort(vector<t>& input, int left, int right, string attribute){
   if(left < right){
     int middle = left + (right - left) / 2;
 
-    mergeSort(input, left, middle);
-    mergeSort(input, middle + 1, right);
+    mergeSort(input, left, middle, attribute);
+    mergeSort(input, middle + 1, right, attribute);
 
-    merge(input, left, right);
+    merge(input, left, right, attribute);
   }
 }
-
-
-void mergeSort(vector<string>& input){
-  mergeSort(input, 0, (int) input.size() - 1);
-}
-
-void mergeSort(vector<int>& input){
-  mergeSort(input, 0, (int) input.size() - 1);
-}
-
-void mergeSort(vector<float>& input){
-  mergeSort(input, 0, (int) input.size() - 1);
-}
-
-void mergeSort(vector<double>& input){
-  mergeSort(input, 0, (int) input.size() - 1);
-}
-
 
 template <typename t>
 int partition(vector<t>& input, int low, int high){

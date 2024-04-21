@@ -19,11 +19,10 @@ namespace Project3 {
 		}
 		// constructor to bring over the two sort times as well as the number of citations (cars) that match all the attributes
 		ResultPage(double^ mergeTime, double^ quickTime, double^ numCitations)
+			: mergeTime(mergeTime), quickTime(quickTime), numCitations(numCitations)
 		{
 			InitializeComponent();
-			this->mergeTime = mergeTime;
-			this->quickTime = quickTime;
-			this->numCitations = numCitations;
+			
 			UpdateTimesandCitationCount();
 		}
 
@@ -172,20 +171,21 @@ namespace Project3 {
 #pragma endregion
 // VARIABLES I DECLARED -------------------------------------------------------------------------------------------------------
 	// FOR TEAMMATES: These are the variables we are working with.
-	double^ mergeTime = 1.0; // This is the time taken to complete ALL merge sorts, 1.0 is a filler value
-	double^ quickTime = 1.0; // This is the time taken to complete ALL quick sorts, 1.0 is a filler value
-	double^ numCitations = 1.0; // This is the finalCitations.size() (or for Winforms its .count() for a List object) I was talking about before, 1 is a filler value
+	private:
+		double^ mergeTime; // This is the time taken to complete ALL merge sorts, 1.0 is a filler value
+		double^ quickTime; // This is the time taken to complete ALL quick sorts, 1.0 is a filler value
+		double^ numCitations; // This is the finalCitations.size() (or for Winforms its .count() for a List object) I was talking about before, 1 is a filler value
 
-	// These conversions are needed because .NET objects use different handles than regular C++, so a bit more complicated to do easy conversions
-	// Convert double and int handles to native types, 
-	double mergeTimeValue = *mergeTime;
-	double quickTimeValue = *quickTime;
-	double numCitationsValue = *numCitations;
+		// These conversions are needed because .NET objects use different handles than regular C++, so a bit more complicated to do easy conversions
+		// Convert double and int handles to native types, 
+		double mergeTimeValue = *mergeTime;
+		double quickTimeValue = *quickTime;
+		double numCitationsValue = *numCitations;
 
-	// Convert native types to strings
-	System::String^ mergeTimeString = mergeTimeValue.ToString();
-	System::String^ quickTimeString = quickTimeValue.ToString();
-	System::String^ numCitationsString = numCitationsValue.ToString();
+		// Convert native types to strings
+		System::String^ mergeTimeString = mergeTimeValue.ToString();
+		System::String^ quickTimeString = quickTimeValue.ToString();
+		System::String^ numCitationsString = numCitationsValue.ToString();
 // FUNCTIONS I WROTE ----------------------------------------------------------------------------------------------------------
 	void UpdateTimesandCitationCount()
 	{
