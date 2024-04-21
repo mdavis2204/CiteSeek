@@ -826,6 +826,20 @@ namespace Project3 {
             return;
         }
 
+        inputplateNumber = PlateNumberTextbox->Text;
+        inputstate = StateTextbox->Text;
+        inputcarMake = CarMakeTextbox->Text;
+        inputcarStyle = CarStyleTextbox->Text;
+        inputcolor = ColorTextbox->Text;
+        inputLocation = LocationTextbox->Text;
+        inputViolation = ViolationTextbox->Text;
+        inputFine = FineTextbox->Text;
+        inputYear = YearTextbox->Text;
+        inputMonth = MonthTextbox->Text;
+        inputDay = DayTextbox->Text;
+        inputHour = HourTextbox->Text;
+        inputMinute = MinuteTextbox->Text;
+
         MultiSortCaller();
         this->Hide();
        // ResultPage^ resultPage = gcnew ResultPage(mergeTime, quickTime, numCitations);
