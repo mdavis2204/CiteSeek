@@ -148,7 +148,7 @@ void quickSort(vector<double>& input){
 
 // take in one parameter and its corresponding category, search through inputted sorted vector for matches, add to empty searched vector and return
 // referenced https://www.geeksforgeeks.org/binary-search/
-std::vector<ParkingCitation> binarySearch(int option, std::string parameter, std::vector<ParkingCitation>& sorted, std::vector<ParkingCitation>& searched) {
+void binarySearch(int option, std::string parameter, std::vector<ParkingCitation>& sorted, std::vector<ParkingCitation>& searched) {
 	int left_index = 0;
 	int right_index = (int) sorted.size() - 1;
 	int middle_index;
