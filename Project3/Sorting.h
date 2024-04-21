@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <chrono>
 #include "ParkingCitations.h"
 using namespace std;
 
@@ -106,8 +107,13 @@ void mergeSort(std::vector<t>& input, int left, int right, std::string& attribut
 }
 
 // Merge Sort caller
-void mergeSort(std::vector<ParkingCitation>& input, std::string& attribute){
+void mergeSort(std::vector<ParkingCitation>& input, std::string& attribute, double& time){
+  auto start = std::chrono::high_resolution_clock::now();
   mergeSort(input, 0, input.size() - 1, attribute);
+  auto stop = std::chrono::high_resolution_clock::now();
+
+  auto duration = duration_cast<std::chrono::microseconds>(stop - start);
+  time = duration.count();
 }
 
 // Quick sort partitioning
@@ -138,8 +144,13 @@ void quickSort(std::vector<t>& input, int low, int high, std::string& attribute)
 }
 
 // Main quick sort caller
-void quickSort(std::vector<ParkingCitation>& input, std::string& attribute){
+void quickSort(std::vector<ParkingCitation>& input, std::string& attribute, double& time){
+  auto start = std::chrono::high_resolution_clock::now();
   quickSort(input, 0, input.size() - 1, attribute);
+  auto stop = std::chrono::high_resolution_clock::now();
+
+  auto duration = duration_cast<std::chrono::microseconds>(stop - start);
+  time = duration.count();
 }
 
 
