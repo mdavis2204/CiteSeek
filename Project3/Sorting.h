@@ -94,8 +94,7 @@ void merge(std::vector<ParkingCitation>& input, int left, int right, std::string
 }
 
 // Main merge sort function (recursive)
-template <typename t>
-void mergeSort(std::vector<t>& input, int left, int right, std::string& attribute){
+void mergeSort(std::vector<ParkingCitation>& input, int left, int right, std::string& attribute){
   if(left < right){
     int middle = left + (right - left) / 2;
 
@@ -107,13 +106,14 @@ void mergeSort(std::vector<t>& input, int left, int right, std::string& attribut
 }
 
 // Merge Sort caller
-void mergeSort(std::vector<ParkingCitation>& input, std::string& attribute, double& time){
+void mergeSort(std::vector<ParkingCitation>& input, std::string attribute, double& time){
   auto start = std::chrono::high_resolution_clock::now();
-  mergeSort(input, 0, input.size() - 1, attribute);
+  mergeSort(input, 0, (int) input.size() - 1, attribute);
   auto stop = std::chrono::high_resolution_clock::now();
 
-  auto duration = duration_cast<std::chrono::microseconds>(stop - start);
-  time = duration.count();
+  auto duration_seconds = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+  auto duration_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+  time = (double)(duration_seconds.count()) + (double) (duration_milliseconds.count()) / 1000.0;
 }
 
 // Quick sort partitioning
@@ -144,13 +144,14 @@ void quickSort(std::vector<t>& input, int low, int high, std::string& attribute)
 }
 
 // Main quick sort caller
-void quickSort(std::vector<ParkingCitation>& input, std::string& attribute, double& time){
+void quickSort(std::vector<ParkingCitation>& input, std::string attribute, double& time){
   auto start = std::chrono::high_resolution_clock::now();
-  quickSort(input, 0, input.size() - 1, attribute);
+  quickSort(input, 0, (int) input.size() - 1, attribute);
   auto stop = std::chrono::high_resolution_clock::now();
 
-  auto duration = duration_cast<std::chrono::microseconds>(stop - start);
-  time = duration.count();
+  auto duration_seconds = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+  auto duration_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+  time = (double)(duration_seconds.count()) + (double)(duration_milliseconds.count()) / 1000.0;
 }
 
 
@@ -385,5 +386,4 @@ void binarySearch(int option, std::string parameter, std::vector<ParkingCitation
 			}
 		}
 	}
-	return searched;
 }
