@@ -1,0 +1,5 @@
+C:\Users\noell\source\repos\cop3530_project3\Project3\x64\Release\Project3.vcxproj.AssemblyReference.cache
+C:\Users\noell\source\repos\cop3530_project3\Project3\x64\Release\Project3.MainPage.resources
+C:\Users\noell\source\repos\cop3530_project3\Project3\x64\Release\Project3.ResultPage.resources
+C:\Users\noell\source\repos\cop3530_project3\Project3\x64\Release\Project3.WelcomePage.resources
+C:\Users\noell\source\repos\cop3530_project3\Project3\x64\Release\Project3.vcxproj.GenerateResource.cache

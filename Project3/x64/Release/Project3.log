@@ -1,0 +1,6 @@
+﻿  main.cpp
+C:\Users\noell\source\repos\cop3530_project3\Project3\main.cpp(42,38): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+  Generating Code...
+  main.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  Project3.vcxproj -> C:\Users\noell\source\repos\cop3530_project3\x64\Release\Project3.exe
