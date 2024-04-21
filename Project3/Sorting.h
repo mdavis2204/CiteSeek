@@ -113,7 +113,7 @@ void mergeSort(std::vector<ParkingCitation>& input, std::string attribute, doubl
 
   auto duration_seconds = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
   auto duration_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-  time = (double)(duration_seconds.count()) + (double) (duration_milliseconds.count()) / 1000.0;
+  time += (double)(duration_seconds.count()) + (double) (duration_milliseconds.count()) / 1000.0;
 }
 
 // Quick sort partitioning
@@ -136,7 +136,7 @@ int partition(std::vector<t>& input, int low, int high, std::string& attribute){
 template <typename t>
 void quickSort(std::vector<t>& input, int low, int high, std::string& attribute){
   if(low < high){
-    int temp = partition(input, low, high, attribute);
+    int temp = partition(input, low, high - 1, attribute);
 
     quickSort(input, low, temp - 1, attribute);
     quickSort(input, temp + 1, high, attribute);
@@ -151,7 +151,7 @@ void quickSort(std::vector<ParkingCitation>& input, std::string attribute, doubl
 
   auto duration_seconds = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
   auto duration_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-  time = (double)(duration_seconds.count()) + (double)(duration_milliseconds.count()) / 1000.0;
+  time += (double)(duration_seconds.count()) + (double)(duration_milliseconds.count()) / 1000.0;
 }
 
 

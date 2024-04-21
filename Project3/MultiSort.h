@@ -23,70 +23,111 @@ List<double>^ MultiSort(vector<ParkingCitation> inVector, String^ inputplateNumb
     double quickTime = 0.0;
     
     if (inputplateNumber != "") {
-       // mergeSort(merge_vector, 0, (int) inVector.size() - 1, "plate_number");
-        // call quick sort
-        // only need to use one of their results for the "insert sorted vector"
-        // binarySearch(0, inputplateNumber, [insert sorted vector], searched_vector);
+        mergeSort(merge_vector, "plate_number", mergeTime);
+
+        std::string converted = msclr::interop::marshal_as<std::string>(inputplateNumber);
+        binarySearch(0, converted, merge_vector, searched_vector);
+        merge_vector = searched_vector;
+        searched_vector.clear();
     }
     if (inputstate != "") {
-       // mergeSort(merge_vector, 0, (int) inVector.size() - 1, "state");
-         // call quick sort
-         // only need to use one of their results for the "insert sorted vector"
-         // binarySearch(1, inputstate, [insert sorted vector], searched_vector);
+        mergeSort(merge_vector, "state", mergeTime);
+
+        std::string converted = msclr::interop::marshal_as<std::string>(inputstate);
+        binarySearch(1, converted, merge_vector, searched_vector);
+        merge_vector = searched_vector;
+        searched_vector.clear();
     }
     // continue with this logic for all the attributes (basically just saying if it is "", we don't sort by it)
     if (inputcarMake != "") {
         mergeSort(merge_vector, "car_make", mergeTime);
-        // binarySearch(2, inputcarMake, [insert sorted vector], searched_vector);
+
+        std::string converted = msclr::interop::marshal_as<std::string>(inputcarMake);
+        binarySearch(2, converted, merge_vector, searched_vector);
+        merge_vector = searched_vector;
+        searched_vector.clear();
     }
     if (inputcarStyle != "") {
         mergeSort(merge_vector, "car_style", mergeTime);
-        // binarySearch(3, inputcarStyle, [insert sorted vector], searched_vector);
+
+        std::string converted = msclr::interop::marshal_as<std::string>(inputcarStyle);
+        binarySearch(3, converted, merge_vector, searched_vector);
+        merge_vector = searched_vector;
+        searched_vector.clear();
     }
     if (inputcolor != "") {
-        mergeSort(merge_vector,"car_color", mergeTime);
-        // binarySearch(4, inputcolor, [insert sorted vector], searched_vector);
+        mergeSort(merge_vector, "car_color", mergeTime);
+
+        std::string converted = msclr::interop::marshal_as<std::string>(inputcolor);
+        binarySearch(4, converted, merge_vector, searched_vector);
+        merge_vector = searched_vector;
+        searched_vector.clear();
     }
     if (inputLocation != "") {
         mergeSort(merge_vector, "location", mergeTime);
-        // binarySearch(5, inputLocation, [insert sorted vector], searched_vector);
+
+        std::string converted = msclr::interop::marshal_as<std::string>(inputLocation);
+        binarySearch(5, converted, merge_vector, searched_vector);
+        merge_vector = searched_vector;
+        searched_vector.clear();
     }
     if (inputViolation != "") {
-       mergeSort(merge_vector, "violation", mergeTime);
-        // binarySearch(6, inputViolation, [insert sorted vector], searched_vector);
+        mergeSort(merge_vector, "violation", mergeTime);
+
+        std::string converted = msclr::interop::marshal_as<std::string>(inputViolation);
+        binarySearch(6, converted, merge_vector, searched_vector);
+        merge_vector = searched_vector;
+        searched_vector.clear();
     }
     // continue with this logic for all the attributes (basically just saying if it is "", we don't sort by it)
     if (inputFine != "") {
         mergeSort(merge_vector, "fine", mergeTime);
-        quickSort(quick_vector, "fine", quickTime);
+        //quickSort(quick_vector, "fine", quickTime);
         std::string converted = msclr::interop::marshal_as<std::string>(inputFine);
         binarySearch(7, converted, merge_vector, searched_vector);
         merge_vector = searched_vector;
+        searched_vector.clear();
     }
     if (inputYear != "") {
         mergeSort(merge_vector, "year", mergeTime);
+
+        std::string converted = msclr::interop::marshal_as<std::string>(inputYear);
+        binarySearch(8, converted, merge_vector, searched_vector);
+        merge_vector = searched_vector;
+        searched_vector.clear();
       //  int convertedInputYear = Convert::ToInt32(inputYear);
-        // binarySearch(8, convertedInputYear, [insert sorted vector], searched_vector);
     }
     if (inputMonth != "") {
         mergeSort(merge_vector, "month", mergeTime);
+        std::string converted = msclr::interop::marshal_as<std::string>(inputMonth);
+        binarySearch(9, converted, merge_vector, searched_vector);
+        merge_vector = searched_vector;
+        searched_vector.clear();
        // int convertedInputMonth = Convert::ToInt32(inputMonth);
-        // binarySearch(9, convertedInputMonth, [insert sorted vector], searched_vector);
     }
     if (inputDay != "") {
         mergeSort(merge_vector, "day", mergeTime);
+        std::string converted = msclr::interop::marshal_as<std::string>(inputDay);
+        binarySearch(10, converted, merge_vector, searched_vector);
+        merge_vector = searched_vector;
+        searched_vector.clear();
        // int convertedInputDay = Convert::ToInt32(inputDay);
-        // binarySearch(10, convertedInputDay, [insert sorted vector], searched_vector);
     }
     if (inputHour != "") {
         mergeSort(merge_vector, "time_hour", mergeTime);
+        std::string converted = msclr::interop::marshal_as<std::string>(inputHour);
+        binarySearch(11, converted, merge_vector, searched_vector);
+        merge_vector = searched_vector;
+        searched_vector.clear();
        // int convertedInputHour = Convert::ToInt32(inputHour);
-        // binarySearch(11, convertedInputHour, [insert sorted vector], searched_vector);
     }
     if (inputMinute != "") {
         mergeSort(merge_vector, "time_minute", mergeTime);
+        std::string converted = msclr::interop::marshal_as<std::string>(inputMinute);
+        binarySearch(12, converted, merge_vector, searched_vector);
+        merge_vector = searched_vector;
+        searched_vector.clear();
        // int convertedInputMinute = Convert::ToInt32(inputMinute);
-        // binarySearch(12, convertedInputMinute, [insert sorted vector], searched_vector);
     }
     
 
@@ -94,7 +135,6 @@ List<double>^ MultiSort(vector<ParkingCitation> inVector, String^ inputplateNumb
     resultList->Add((double) merge_vector.size());
     resultList->Add(mergeTime); // merge sort time
     resultList->Add(quickTime); // quick sort time
-    // I can do this part - Nick. *** ALL I NEED FROM YOU BOTH IS YOUR SORTS AND SEARCH IMPLEMENTED, A FINAL VECTOR THAT HAS BEEN SORTED ACCORDING TO ALL ATTRIBUTES, AND THE TWO SORT TIMES *** 
     // at the end here, do the calculations for the total amount and return a .NET List container in the order: [amount that match attribute (double), merge time (double), quick time (double)]
     return resultList;
 }
