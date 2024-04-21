@@ -4,59 +4,59 @@
 #include "ParkingCitations.h"
 using namespace std;
 
-bool comparison(ParkingCitation& citation1, ParkingCitation& citation2, string& attribute) {
-	if (attribute == "number_plate") {
-		return citation1.number_plate < citation2.number_plate;
-	}
-	else if (attribute == "state") {
-		return citation1.state < citation2.state;
-	}
-	else if (attribute == "car_make") {
-		return citation1.car_make < citation2.car_make;
-	}
-	else if (attribute == "car_style") {
-		return citation1.car_style < citation2.car_style;
-	}
-	else if (attribute == "car_color") {
-		return citation1.car_color < citation2.car_color;
-	}
-	else if (attribute == "car_location") {
-		return citation1.location < citation2.location;
-	}
-	else if (attribute == "violation") {
-		return citation1.violation < citation2.violation;
-	}
-	else if (attribute == "fine") {
-		return citation1.fine < citation2.fine;
-	}
-	else if (attribute == "year") {
-		return citation1.year < citation2.year;
-	}
-	else if (attribute == "month") {
-		return citation1.month < citation2.month;
-	}
-	else if (attribute == "day") {
-		return citation1.day < citation2.day;
-	}
-	else if (attribute == "time_hour") {
-		return citation1.time_hour < citation2.time_hour;
-	}
-	else if (attribute == "time_minute") {
-		return citation1.time_minute < citation2.time_minute;
-	}
-	// default if there is a problem
-	return citation1.number_plate < citation2.number_plate;
+bool comparison(ParkingCitation& citation1, ParkingCitation& citation2, std::string& attribute) {
+  if (attribute == "number_plate") {
+    return citation1.number_plate < citation2.number_plate;
+  }
+  else if (attribute == "state") {
+    return citation1.state < citation2.state;
+  }
+  else if (attribute == "car_make") {
+    return citation1.car_make < citation2.car_make;
+  }
+  else if (attribute == "car_style") {
+    return citation1.car_style < citation2.car_style;
+  }
+  else if (attribute == "car_color") {
+    return citation1.car_color < citation2.car_color;
+  }
+  else if (attribute == "car_location") {
+    return citation1.location < citation2.location;
+  }
+  else if (attribute == "violation") {
+    return citation1.violation < citation2.violation;
+  }
+  else if (attribute == "fine") {
+    return citation1.fine < citation2.fine;
+  }
+  else if (attribute == "year") {
+    return citation1.year < citation2.year;
+  }
+  else if (attribute == "month") {
+    return citation1.month < citation2.month;
+  }
+  else if (attribute == "day") {
+    return citation1.day < citation2.day;
+  }
+  else if (attribute == "time_hour") {
+    return citation1.time_hour < citation2.time_hour;
+  }
+  else if (attribute == "time_minute") {
+    return citation1.time_minute < citation2.time_minute;
+  }
+  // default if there is a problem
+  return citation1.number_plate < citation2.number_plate;
 }
 
-// merge sort
-void merge(vector<ParkingCitation>& input, int left, int right, string attribute) {
+// Merge sort merge function
+void merge(std::vector<ParkingCitation>& input, int left, int right, std::string& attribute) {
 
   int middle = left + (right - left) / 2;
 
   int left_size = middle - left + 1;
   int right_size = right - middle;
 
-  vector<ParkingCitation> left_vect(left_size), right_vect(right_size);
+  std::vector<ParkingCitation> left_vect(left_size), right_vect(right_size);
 
   for(int i = 0; i < left_size; i ++){
     left_vect[i] = input[left + i];
@@ -89,11 +89,12 @@ void merge(vector<ParkingCitation>& input, int left, int right, string attribute
     right_index ++;
     input_index ++;
   }
-  
+
 }
 
+// Main merge sort function (recursive)
 template <typename t>
-void mergeSort(vector<t>& input, int left, int right, string attribute){
+void mergeSort(std::vector<t>& input, int left, int right, std::string& attribute){
   if(left < right){
     int middle = left + (right - left) / 2;
 
@@ -104,47 +105,43 @@ void mergeSort(vector<t>& input, int left, int right, string attribute){
   }
 }
 
+// Merge Sort caller
+void mergeSort(std::vector<ParkingCitation>& input, std::string& attribute){
+  mergeSort(input, 0, input.size() - 1, attribute);
+}
+
+// Quick sort partitioning
 template <typename t>
-int partition(vector<t>& input, int low, int high){
+int partition(std::vector<t>& input, int low, int high, std::string& attribute){
   t pivot = input[high];
   int index = low - 1;
 
   for(int j = low; j < high; j ++){
-    if(input[j] < pivot){
+    if(comparison(input[j], pivot, attribute)){
       index ++;
-      swap(input[index], input[j]);
+      std::swap(input[index], input[j]);
     }
   }
-  swap(input[index + 1], input[high]);
+  std::swap(input[index + 1], input[high]);
   return index + 1;
 }
 
-// quick sort
+// Main quick sort function (recursive)
 template <typename t>
-void quickSort(vector<t>& input, int low, int high){
+void quickSort(std::vector<t>& input, int low, int high, std::string& attribute){
   if(low < high){
-    int temp = partition(input, low, high);
+    int temp = partition(input, low, high, attribute);
 
-    quickSort(input, low, temp - 1);
-    quickSort(input, temp + 1, high);
+    quickSort(input, low, temp - 1, attribute);
+    quickSort(input, temp + 1, high, attribute);
   }
 }
 
-void quickSort(vector<string>& input){
-  quickSort(input, 0, (int) input.size() - 1);
+// Main quick sort caller
+void quickSort(std::vector<ParkingCitation>& input, std::string& attribute){
+  quickSort(input, 0, input.size() - 1, attribute);
 }
 
-void quickSort(vector<int>& input){
-  quickSort(input, 0, (int) input.size() - 1);
-}
-
-void quickSort(vector<float>& input){
-  quickSort(input, 0, (int) input.size() - 1);
-}
-
-void quickSort(vector<double>& input){
-  quickSort(input, 0, (int) input.size() - 1);
-}
 
 // take in one parameter and its corresponding category, search through inputted sorted vector for matches, add to empty searched vector and return
 // referenced https://www.geeksforgeeks.org/binary-search/
