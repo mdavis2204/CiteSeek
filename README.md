@@ -16,7 +16,7 @@
 
 ### In addition, users must download the latest version of CiteSeek from this GitHub Repository.
 
-## There is no direct .exe for this program that works correctly, so if a demo is needed, please contact the authors.
+### There is no direct .exe for this program that works correctly, so if a demo is needed, please contact the authors.
 
 ## Credits 
 
