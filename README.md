@@ -6,7 +6,7 @@
 
 ## About
 
-### CiteSeek is a program developed by MNM Technologies. It utilizes a WinForms GUI and C++ to locate car citations efficiently. This is done through merge sort and quick sort, and the program compares the time taken to sort by both methods. (The data set we used was altered by deleting the last 48 entries from the original .CSV file to not include parking citations with negative fine amounts and is included in the Project3 folder.)
+### CiteSeek is a program developed by MNM Technologies. It utilizes a WinForms GUI and C++ to locate car citations efficiently. This is done through merge sort and quick sort, and the program compares the time taken to sort by both methods. (The data set we used was altered by only including the first 8,000 rows (with 13 columns in each row) from the original .CSV file to cut down on execution time)
 
 ## Installation
 
