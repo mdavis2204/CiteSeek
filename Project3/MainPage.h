@@ -33,7 +33,7 @@ namespace Project3 {
             inputHour = HourTextbox->Text;
             inputMinute = MinuteTextbox->Text;
         }
-
+        // parameterized constructor to bring over the name from WelcomePage.h
         MainPage(String^ name)
         {
             InitializeComponent();
@@ -58,7 +58,6 @@ namespace Project3 {
         }
 
     protected:
-
 
            ~MainPage()
         {
@@ -113,10 +112,14 @@ namespace Project3 {
     private: System::Windows::Forms::Label^ MinuteEXLabel;
     private: System::Windows::Forms::PictureBox^ pictureBox1;
     private: System::Windows::Forms::PictureBox^ MemePictureBox;
+    private: System::Windows::Forms::Label^ label2;
+    private: System::Windows::Forms::Label^ label3;
+private: System::Windows::Forms::Label^ label4;
+
     private: System::Windows::Forms::Button^ SelectionConfirmButton;
 
 
-    // initializes each component. done automatically in Winforms
+    // initializes each component. done automatically in and by Winforms: applies to other 2 "Pages" as well
     void InitializeComponent(void)
     {
         System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainPage::typeid));
@@ -163,6 +166,9 @@ namespace Project3 {
         this->MinuteEXLabel = (gcnew System::Windows::Forms::Label());
         this->SelectionConfirmButton = (gcnew System::Windows::Forms::Button());
         this->MemePictureBox = (gcnew System::Windows::Forms::PictureBox());
+        this->label2 = (gcnew System::Windows::Forms::Label());
+        this->label3 = (gcnew System::Windows::Forms::Label());
+        this->label4 = (gcnew System::Windows::Forms::Label());
         (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->MemePictureBox))->BeginInit();
         this->SuspendLayout();
         // 
@@ -186,10 +192,10 @@ namespace Project3 {
         this->label1->ForeColor = System::Drawing::SystemColors::ButtonFace;
         this->label1->Location = System::Drawing::Point(76, 104);
         this->label1->Name = L"label1";
-        this->label1->Size = System::Drawing::Size(906, 23);
+        this->label1->Size = System::Drawing::Size(913, 23);
         this->label1->TabIndex = 2;
-        this->label1->Text = L"Please enter the name of the attribute you would like to search by in the accordi"
-            L"ng textboxes. Examples are provided.";
+        this->label1->Text = L"Please enter the name of the attributes you would like to search by in the accord"
+            L"ing textboxes. Examples are provided.";
         // 
         // PlateNumberLabel
         // 
@@ -606,7 +612,7 @@ namespace Project3 {
         this->FineEXLabel->Name = L"FineEXLabel";
         this->FineEXLabel->Size = System::Drawing::Size(55, 12);
         this->FineEXLabel->TabIndex = 46;
-        this->FineEXLabel->Text = L"ex: 195, 450";
+        this->FineEXLabel->Text = L"ex: 195, 440";
         // 
         // YearEXLabel
         // 
@@ -654,7 +660,7 @@ namespace Project3 {
         this->HourEXLabel->Name = L"HourEXLabel";
         this->HourEXLabel->Size = System::Drawing::Size(108, 12);
         this->HourEXLabel->TabIndex = 50;
-        this->HourEXLabel->Text = L"ex: Integer from 1 to 24";
+        this->HourEXLabel->Text = L"ex: Integer from 1 to 23";
         // 
         // MinuteEXLabel
         // 
@@ -695,6 +701,44 @@ namespace Project3 {
         this->MemePictureBox->TabIndex = 54;
         this->MemePictureBox->TabStop = false;
         // 
+        // label2
+        // 
+        this->label2->AutoSize = true;
+        this->label2->BackColor = System::Drawing::Color::Transparent;
+        this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 6.2F));
+        this->label2->ForeColor = System::Drawing::Color::Yellow;
+        this->label2->Location = System::Drawing::Point(182, 616);
+        this->label2->Name = L"label2";
+        this->label2->Size = System::Drawing::Size(539, 13);
+        this->label2->TabIndex = 55;
+        this->label2->Text = L"Note: Depending on the amount of citations in the .csv, sort and search times may"
+            L" take several minutes.";
+        // 
+        // label3
+        // 
+        this->label3->AutoSize = true;
+        this->label3->BackColor = System::Drawing::Color::Transparent;
+        this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 6.2F));
+        this->label3->ForeColor = System::Drawing::Color::Yellow;
+        this->label3->Location = System::Drawing::Point(202, 640);
+        this->label3->Name = L"label3";
+        this->label3->Size = System::Drawing::Size(501, 13);
+        this->label3->TabIndex = 56;
+        this->label3->Text = L"This slowness is caused by quick sort and how the pivot is always chosen to be th"
+            L"e last element.";
+        // 
+        // label4
+        // 
+        this->label4->AutoSize = true;
+        this->label4->BackColor = System::Drawing::Color::Transparent;
+        this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI", 6.2F));
+        this->label4->ForeColor = System::Drawing::Color::Yellow;
+        this->label4->Location = System::Drawing::Point(105, 136);
+        this->label4->Name = L"label4";
+        this->label4->Size = System::Drawing::Size(239, 13);
+        this->label4->TabIndex = 57;
+        this->label4->Text = L"Note: Words are case sensitive, see examples.";
+        // 
         // MainPage
         // 
         this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -702,6 +746,9 @@ namespace Project3 {
         this->BackColor = System::Drawing::SystemColors::ActiveCaption;
         this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
         this->ClientSize = System::Drawing::Size(1262, 673);
+        this->Controls->Add(this->label4);
+        this->Controls->Add(this->label3);
+        this->Controls->Add(this->label2);
         this->Controls->Add(this->MemePictureBox);
         this->Controls->Add(this->SelectionConfirmButton);
         this->Controls->Add(this->MinuteEXLabel);
@@ -784,19 +831,18 @@ namespace Project3 {
         ParkingCitations obj1;
         obj1.readFile();
         vector<ParkingCitation> classCitationVect = obj1.getCitations();
+        // make list object to take in these value from the MultiSort function
         List<double>^ doubleList = gcnew List<double>();
         doubleList = MultiSort(classCitationVect, inputplateNumber, inputstate, inputcarMake, inputcarStyle, inputcolor, inputLocation,
         inputViolation, inputFine, inputYear, inputMonth, inputDay, inputHour, inputMinute);
 
-        double^ managedNumCitations = gcnew double(doubleList[0]);
-        double^ managedMergeTime = gcnew double(doubleList[1]);
-        double^ managedQuickTime = gcnew double(doubleList[2]);
-
-        numCitations = *managedNumCitations;
-        mergeTime = *managedMergeTime;
-        quickTime = *managedQuickTime;
+        // take values from MultiSort and use them for values to display
+        numCitations = doubleList[0];
+        mergeTime = doubleList[1];
+        quickTime = doubleList[2];
     }
 
+    // user puts in name to previous textbox on WelcomePage 
     void UpdateWelcomePanelText()
     {
         this->WelcomePanel->Text = "Hi " + inputName + "! Which attributes you would like to search by?";
@@ -814,10 +860,12 @@ namespace Project3 {
             e->Handled = true;
         }
     }
+    // close the main page when the Result page is open
     private: System::Void ResultPage_FormClosed(System::Object^ sender, FormClosedEventArgs^ e) {
-        this->Close(); // Close the main page when the Result page is open
+        this->Close();
     }
 
+    // similar to button on last page. check if at least one attribute has been selected. Design choice to not just make it all of the citations if a user types in nothing
     private: System::Void SelectionConfirmButton_Click(System::Object^ sender, System::EventArgs^ e) {
         if (PlateNumberTextbox->Text == "" && StateTextbox->Text == "" && CarMakeTextbox->Text == "" && CarStyleTextbox->Text == "" && ColorTextbox->Text == "" && LocationTextbox->Text == "" &&
             ViolationTextbox->Text == "" && FineTextbox->Text == "" && YearTextbox->Text == "" && MonthTextbox->Text == "" && DayTextbox->Text == "" && HourTextbox->Text == "" &&
@@ -825,7 +873,10 @@ namespace Project3 {
             MessageBox::Show("Please fill in at least one field!", "No Attribute Selected");
             return;
         }
+        // set cursor to waiting so user knows the program is working
+        SelectionConfirmButton->Cursor = Cursors::WaitCursor;
 
+        // set attributes right before to feed in user inputs
         inputplateNumber = PlateNumberTextbox->Text;
         inputstate = StateTextbox->Text;
         inputcarMake = CarMakeTextbox->Text;
@@ -840,13 +891,17 @@ namespace Project3 {
         inputHour = HourTextbox->Text;
         inputMinute = MinuteTextbox->Text;
 
+        // call multisort: allows for vector work OUTSIDE of the main ref class so no need to write in .NET 
         MultiSortCaller();
         this->Hide();
+        // reset cursor to pointer so user knows the program is done
+        SelectionConfirmButton->Cursor = Cursors::Default;
        // ResultPage^ resultPage = gcnew ResultPage(mergeTime, quickTime, numCitations);
         ResultPage^ resultPage = gcnew ResultPage(mergeTime, quickTime, numCitations);
         resultPage->FormClosed += gcnew FormClosedEventHandler(this, &MainPage::ResultPage_FormClosed);
         resultPage->ShowDialog();
     }
     //----------------------------------------------------------------------------------------------------------------------------
+
 };
 }

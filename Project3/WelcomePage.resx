@@ -6142,6 +6142,11 @@
         TkSuQmCC
 </value>
   </data>
+  <data name="AboutTextLabel.Text" xml:space="preserve">
+    <value>This application utilizes merge sort and quick sort in order to find vehicles that have been given parking citations. These sorting algorithms allow for the use of binary search, a quick searching algorithm exclusively available to sorted containers. This allows for a better and more efficient user experience.
+
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAIBsAAAEAIAAUDgAAFgAAACgAAAAgAAAANgAAAAEAIAAAAAAAgA0AAHQSAAB0EgAAAAAAAAAA

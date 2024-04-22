@@ -35,17 +35,17 @@ namespace Project3 {
 	private: System::Windows::Forms::Label^ WelcomePanel;
 	private: System::Windows::Forms::Panel^ WelcomePanelRight;
 	private: System::Windows::Forms::Panel^ WelcomePanelLeft;
-	private: System::Windows::Forms::Label^ AboutTitle;
+	private: System::Windows::Forms::Label^ AboutTitleLabel;
 	private: System::Windows::Forms::Panel^ panel3;
-	private: System::Windows::Forms::Label^ AboutText;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ AboutTextLabel;
+	private: System::Windows::Forms::Label^ MNMLabel;
+	private: System::Windows::Forms::Label^ TechLabel;
 	private: System::Windows::Forms::Label^ LoginMessagePanel;
 	private: System::Windows::Forms::Panel^ NameBackgroundPanel;
 	private: System::Windows::Forms::TextBox^ NameTextBox;
 	private: System::Windows::Forms::Button^ LoginConfirmButton;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ RefresherPanel;
 	private: System::Windows::Forms::LinkLabel^ MergeSortLink;
 	private: System::Windows::Forms::LinkLabel^ QuickSortLink;
 	private: System::Windows::Forms::Label^ label4;
@@ -66,18 +66,18 @@ namespace Project3 {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->QuickSortLink = (gcnew System::Windows::Forms::LinkLabel());
 			this->MergeSortLink = (gcnew System::Windows::Forms::LinkLabel());
-			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->RefresherPanel = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->LoginConfirmButton = (gcnew System::Windows::Forms::Button());
 			this->NameBackgroundPanel = (gcnew System::Windows::Forms::Panel());
 			this->NameTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->LoginMessagePanel = (gcnew System::Windows::Forms::Label());
 			this->WelcomePanelLeft = (gcnew System::Windows::Forms::Panel());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->TechLabel = (gcnew System::Windows::Forms::Label());
+			this->MNMLabel = (gcnew System::Windows::Forms::Label());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
-			this->AboutText = (gcnew System::Windows::Forms::Label());
-			this->AboutTitle = (gcnew System::Windows::Forms::Label());
+			this->AboutTextLabel = (gcnew System::Windows::Forms::Label());
+			this->AboutTitleLabel = (gcnew System::Windows::Forms::Label());
 			this->WelcomePanelRight->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->NameBackgroundPanel->SuspendLayout();
@@ -108,7 +108,7 @@ namespace Project3 {
 			this->WelcomePanelRight->Controls->Add(this->label4);
 			this->WelcomePanelRight->Controls->Add(this->QuickSortLink);
 			this->WelcomePanelRight->Controls->Add(this->MergeSortLink);
-			this->WelcomePanelRight->Controls->Add(this->label3);
+			this->WelcomePanelRight->Controls->Add(this->RefresherPanel);
 			this->WelcomePanelRight->Controls->Add(this->pictureBox1);
 			this->WelcomePanelRight->Controls->Add(this->LoginConfirmButton);
 			this->WelcomePanelRight->Controls->Add(this->NameBackgroundPanel);
@@ -186,17 +186,17 @@ namespace Project3 {
 			this->MergeSortLink->Text = L"Merge Sort";
 			this->MergeSortLink->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &WelcomePage::MergeSortLink_LinkClicked);
 			// 
-			// label3
+			// RefresherPanel
 			// 
-			this->label3->AutoSize = true;
-			this->label3->BackColor = System::Drawing::Color::Transparent;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.2F));
-			this->label3->ForeColor = System::Drawing::Color::Silver;
-			this->label3->Location = System::Drawing::Point(256, 361);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(376, 23);
-			this->label3->TabIndex = 5;
-			this->label3->Text = L"Need a refresher on merge sort and quick sort\? ";
+			this->RefresherPanel->AutoSize = true;
+			this->RefresherPanel->BackColor = System::Drawing::Color::Transparent;
+			this->RefresherPanel->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.2F));
+			this->RefresherPanel->ForeColor = System::Drawing::Color::Silver;
+			this->RefresherPanel->Location = System::Drawing::Point(256, 361);
+			this->RefresherPanel->Name = L"RefresherPanel";
+			this->RefresherPanel->Size = System::Drawing::Size(376, 23);
+			this->RefresherPanel->TabIndex = 5;
+			this->RefresherPanel->Text = L"Need a refresher on merge sort and quick sort\? ";
 			// 
 			// pictureBox1
 			// 
@@ -266,80 +266,79 @@ namespace Project3 {
 			// WelcomePanelLeft
 			// 
 			this->WelcomePanelLeft->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"WelcomePanelLeft.BackgroundImage")));
-			this->WelcomePanelLeft->Controls->Add(this->label2);
-			this->WelcomePanelLeft->Controls->Add(this->label1);
+			this->WelcomePanelLeft->Controls->Add(this->TechLabel);
+			this->WelcomePanelLeft->Controls->Add(this->MNMLabel);
 			this->WelcomePanelLeft->Controls->Add(this->panel3);
-			this->WelcomePanelLeft->Controls->Add(this->AboutTitle);
+			this->WelcomePanelLeft->Controls->Add(this->AboutTitleLabel);
 			this->WelcomePanelLeft->Location = System::Drawing::Point(0, 0);
 			this->WelcomePanelLeft->Name = L"WelcomePanelLeft";
 			this->WelcomePanelLeft->Size = System::Drawing::Size(392, 678);
 			this->WelcomePanelLeft->TabIndex = 2;
 			this->WelcomePanelLeft->Click += gcnew System::EventHandler(this, &WelcomePage::otherClick);
 			// 
-			// label2
+			// TechLabel
 			// 
-			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::Color::Transparent;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+			this->TechLabel->AutoSize = true;
+			this->TechLabel->BackColor = System::Drawing::Color::Transparent;
+			this->TechLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->label2->Location = System::Drawing::Point(70, 188);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(235, 39);
-			this->label2->TabIndex = 4;
-			this->label2->Text = L"Technologies";
-			this->label2->Click += gcnew System::EventHandler(this, &WelcomePage::otherClick);
+			this->TechLabel->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->TechLabel->Location = System::Drawing::Point(70, 188);
+			this->TechLabel->Name = L"TechLabel";
+			this->TechLabel->Size = System::Drawing::Size(235, 39);
+			this->TechLabel->TabIndex = 4;
+			this->TechLabel->Text = L"Technologies";
+			this->TechLabel->Click += gcnew System::EventHandler(this, &WelcomePage::otherClick);
 			// 
-			// label1
+			// MNMLabel
 			// 
-			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::Transparent;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 51, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->MNMLabel->AutoSize = true;
+			this->MNMLabel->BackColor = System::Drawing::Color::Transparent;
+			this->MNMLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 51, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->label1->Location = System::Drawing::Point(70, 92);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(246, 96);
-			this->label1->TabIndex = 3;
-			this->label1->Text = L"MNM";
-			this->label1->Click += gcnew System::EventHandler(this, &WelcomePage::otherClick);
+			this->MNMLabel->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->MNMLabel->Location = System::Drawing::Point(70, 92);
+			this->MNMLabel->Name = L"MNMLabel";
+			this->MNMLabel->Size = System::Drawing::Size(246, 96);
+			this->MNMLabel->TabIndex = 3;
+			this->MNMLabel->Text = L"MNM";
+			this->MNMLabel->Click += gcnew System::EventHandler(this, &WelcomePage::otherClick);
 			// 
 			// panel3
 			// 
 			this->panel3->BackColor = System::Drawing::Color::Transparent;
-			this->panel3->Controls->Add(this->AboutText);
+			this->panel3->Controls->Add(this->AboutTextLabel);
 			this->panel3->ForeColor = System::Drawing::Color::Transparent;
 			this->panel3->Location = System::Drawing::Point(37, 396);
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(304, 217);
 			this->panel3->TabIndex = 2;
 			// 
-			// AboutText
+			// AboutTextLabel
 			// 
-			this->AboutText->BackColor = System::Drawing::Color::Transparent;
-			this->AboutText->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->AboutText->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.2F));
-			this->AboutText->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->AboutText->Location = System::Drawing::Point(0, 0);
-			this->AboutText->Name = L"AboutText";
-			this->AboutText->Size = System::Drawing::Size(304, 217);
-			this->AboutText->TabIndex = 2;
-			this->AboutText->Text = L"This application utilizes merge sort and quick sort in order to find vehicles tha"
-				L"t have been given parking citations.";
-			this->AboutText->Click += gcnew System::EventHandler(this, &WelcomePage::otherClick);
+			this->AboutTextLabel->BackColor = System::Drawing::Color::Transparent;
+			this->AboutTextLabel->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->AboutTextLabel->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.2F));
+			this->AboutTextLabel->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->AboutTextLabel->Location = System::Drawing::Point(0, 0);
+			this->AboutTextLabel->Name = L"AboutTextLabel";
+			this->AboutTextLabel->Size = System::Drawing::Size(304, 217);
+			this->AboutTextLabel->TabIndex = 2;
+			this->AboutTextLabel->Text = resources->GetString(L"AboutTextLabel.Text");
+			this->AboutTextLabel->Click += gcnew System::EventHandler(this, &WelcomePage::otherClick);
 			// 
-			// AboutTitle
+			// AboutTitleLabel
 			// 
-			this->AboutTitle->AutoSize = true;
-			this->AboutTitle->BackColor = System::Drawing::Color::Transparent;
-			this->AboutTitle->Font = (gcnew System::Drawing::Font(L"Segoe UI", 20.2F));
-			this->AboutTitle->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->AboutTitle->Location = System::Drawing::Point(33, 317);
-			this->AboutTitle->Name = L"AboutTitle";
-			this->AboutTitle->Size = System::Drawing::Size(319, 46);
-			this->AboutTitle->TabIndex = 1;
-			this->AboutTitle->Text = L"About This Program";
-			this->AboutTitle->Click += gcnew System::EventHandler(this, &WelcomePage::otherClick);
+			this->AboutTitleLabel->AutoSize = true;
+			this->AboutTitleLabel->BackColor = System::Drawing::Color::Transparent;
+			this->AboutTitleLabel->Font = (gcnew System::Drawing::Font(L"Segoe UI", 20.2F));
+			this->AboutTitleLabel->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->AboutTitleLabel->Location = System::Drawing::Point(33, 317);
+			this->AboutTitleLabel->Name = L"AboutTitleLabel";
+			this->AboutTitleLabel->Size = System::Drawing::Size(319, 46);
+			this->AboutTitleLabel->TabIndex = 1;
+			this->AboutTitleLabel->Text = L"About This Program";
+			this->AboutTitleLabel->Click += gcnew System::EventHandler(this, &WelcomePage::otherClick);
 			// 
 			// WelcomePage
 			// 
@@ -367,10 +366,8 @@ namespace Project3 {
 		}
 #pragma endregion
 
-		// VARIABLES I DECLARED -------------------------------------------------------------------------------------------------------
-		// 
-		// FUNCTIONS I WROTE ----------------------------------------------------------------------------------------------------------
-	// Define a non-managed function to convert vector to List
+// FUNCTIONS I WROTE ----------------------------------------------------------------------------------------------------------
+	// define a non-managed function to convert vector to List .NET type
 		template<typename T>
 		List<T>^ VectorToList(const std::vector<T>& inVector) {
 			List<T>^ outList = gcnew List<T>();

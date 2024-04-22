@@ -42,6 +42,7 @@ namespace Project3 {
 	private: System::Windows::Forms::Button^ CloseApplicationButton;
 	private: System::Windows::Forms::Panel^ ResultPanel;
 	private: System::Windows::Forms::Panel^ ClosePanel;
+	private: System::Windows::Forms::Label^ label2;
 	private:
 		
 		System::ComponentModel::Container ^components;
@@ -58,6 +59,7 @@ namespace Project3 {
 		this->CloseApplicationButton = (gcnew System::Windows::Forms::Button());
 		this->ResultPanel = (gcnew System::Windows::Forms::Panel());
 		this->ClosePanel = (gcnew System::Windows::Forms::Panel());
+		this->label2 = (gcnew System::Windows::Forms::Label());
 		this->ResultPanel->SuspendLayout();
 		this->ClosePanel->SuspendLayout();
 		this->SuspendLayout();
@@ -79,7 +81,7 @@ namespace Project3 {
 		this->MergeTimeLabel->AutoSize = true;
 		this->MergeTimeLabel->BackColor = System::Drawing::Color::Transparent;
 		this->MergeTimeLabel->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12.2F));
-		this->MergeTimeLabel->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+		this->MergeTimeLabel->ForeColor = System::Drawing::Color::Yellow;
 		this->MergeTimeLabel->Location = System::Drawing::Point(11, 52);
 		this->MergeTimeLabel->Name = L"MergeTimeLabel";
 		this->MergeTimeLabel->Size = System::Drawing::Size(172, 30);
@@ -91,7 +93,7 @@ namespace Project3 {
 		this->QuickTimeLabel->AutoSize = true;
 		this->QuickTimeLabel->BackColor = System::Drawing::Color::Transparent;
 		this->QuickTimeLabel->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12.2F));
-		this->QuickTimeLabel->ForeColor = System::Drawing::SystemColors::AppWorkspace;
+		this->QuickTimeLabel->ForeColor = System::Drawing::Color::Yellow;
 		this->QuickTimeLabel->Location = System::Drawing::Point(11, 95);
 		this->QuickTimeLabel->Name = L"QuickTimeLabel";
 		this->QuickTimeLabel->Size = System::Drawing::Size(165, 30);
@@ -140,12 +142,25 @@ namespace Project3 {
 		// ClosePanel
 		// 
 		this->ClosePanel->BackColor = System::Drawing::Color::SteelBlue;
+		this->ClosePanel->Controls->Add(this->label2);
 		this->ClosePanel->Controls->Add(this->CloseApplicationButton);
 		this->ClosePanel->Controls->Add(this->LoginMessagePanel);
 		this->ClosePanel->Location = System::Drawing::Point(685, 465);
 		this->ClosePanel->Name = L"ClosePanel";
-		this->ClosePanel->Size = System::Drawing::Size(546, 144);
+		this->ClosePanel->Size = System::Drawing::Size(546, 163);
 		this->ClosePanel->TabIndex = 56;
+		// 
+		// label2
+		// 
+		this->label2->AutoSize = true;
+		this->label2->BackColor = System::Drawing::Color::Transparent;
+		this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 6.2F));
+		this->label2->ForeColor = System::Drawing::Color::Yellow;
+		this->label2->Location = System::Drawing::Point(163, 136);
+		this->label2->Name = L"label2";
+		this->label2->Size = System::Drawing::Size(214, 13);
+		this->label2->TabIndex = 57;
+		this->label2->Text = L"Note: To sort again, restart the program.";
 		// 
 		// ResultPage
 		// 
@@ -177,16 +192,17 @@ namespace Project3 {
 		double^ numCitations; // This is the finalCitations.size() (or for Winforms its .count() for a List object) I was talking about before, 1 is a filler value
 
 		// These conversions are needed because .NET objects use different handles than regular C++, so a bit more complicated to do easy conversions
-		// Convert double and int handles to native types, 
+		// convert double and int handles to native types
 		double mergeTimeValue = *mergeTime;
 		double quickTimeValue = *quickTime;
 		double numCitationsValue = *numCitations;
 
-		// Convert native types to strings
+		// convert native types to strings
 		System::String^ mergeTimeString = mergeTimeValue.ToString();
 		System::String^ quickTimeString = quickTimeValue.ToString();
 		System::String^ numCitationsString = numCitationsValue.ToString();
 // FUNCTIONS I WROTE ----------------------------------------------------------------------------------------------------------
+	// handles the output of the result page text boxes
 	void UpdateTimesandCitationCount()
 	{
 		this->NumCitationsLabel->Text = "The number of citations that match your search are: " + numCitationsString + "!";
@@ -203,8 +219,9 @@ namespace Project3 {
 			this->QuickTimeLabel->Text = "Quick Sort Time: " + quickTimeString + " seconds";
 		}		
 	}
-private: System::Void CloseApplicationButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Close(); // Close the result page
+	// close the result page
+	private: System::Void CloseApplicationButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
 }
 };
 }
