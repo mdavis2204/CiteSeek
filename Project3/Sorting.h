@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <chrono>
+#include <algorithm>
 #include "ParkingCitations.h"
 using namespace std;
 
@@ -170,7 +171,7 @@ void binarySearch(int option, std::string parameter, std::vector<ParkingCitation
 			if (sorted[middle_index].number_plate == parameter) {
 				searched.push_back(sorted[middle_index]);
 				sorted.erase(sorted.begin() + middle_index);
-				binarySearch(option, parameter, sorted, searched);
+				continue;
 			}
 
 			else if (sorted[middle_index].number_plate < parameter) {
@@ -187,7 +188,7 @@ void binarySearch(int option, std::string parameter, std::vector<ParkingCitation
 			if (sorted[middle_index].state == parameter) {
 				searched.push_back(sorted[middle_index]);
 				sorted.erase(sorted.begin() + middle_index);
-				binarySearch(option, parameter, sorted, searched);
+				continue;
 			}
 
 			else if (sorted[middle_index].state < parameter) {
@@ -204,7 +205,7 @@ void binarySearch(int option, std::string parameter, std::vector<ParkingCitation
 			if (sorted[middle_index].car_make == parameter) {
 				searched.push_back(sorted[middle_index]);
 				sorted.erase(sorted.begin() + middle_index);
-				binarySearch(option, parameter, sorted, searched);
+				continue;
 			}
 
 			else if (sorted[middle_index].car_make < parameter) {
@@ -221,7 +222,7 @@ void binarySearch(int option, std::string parameter, std::vector<ParkingCitation
 			if (sorted[middle_index].car_style == parameter) {
 				searched.push_back(sorted[middle_index]);
 				sorted.erase(sorted.begin() + middle_index);
-				binarySearch(option, parameter, sorted, searched);
+				continue;
 			}
 
 			else if (sorted[middle_index].car_style < parameter) {
@@ -238,7 +239,7 @@ void binarySearch(int option, std::string parameter, std::vector<ParkingCitation
 			if (sorted[middle_index].car_color == parameter) {
 				searched.push_back(sorted[middle_index]);
 				sorted.erase(sorted.begin() + middle_index);
-				binarySearch(option, parameter, sorted, searched);
+				continue;
 			}
 
 			else if (sorted[middle_index].car_color < parameter) {
@@ -255,7 +256,7 @@ void binarySearch(int option, std::string parameter, std::vector<ParkingCitation
 			if (sorted[middle_index].location == parameter) {
 				searched.push_back(sorted[middle_index]);
 				sorted.erase(sorted.begin() + middle_index);
-				binarySearch(option, parameter, sorted, searched);
+				continue;
 			}
 
 			else if (sorted[middle_index].location < parameter) {
@@ -272,7 +273,7 @@ void binarySearch(int option, std::string parameter, std::vector<ParkingCitation
 			if (sorted[middle_index].violation == parameter) {
 				searched.push_back(sorted[middle_index]);
 				sorted.erase(sorted.begin() + middle_index);
-				binarySearch(option, parameter, sorted, searched);
+				continue;
 			}
 
 			else if (sorted[middle_index].violation < parameter) {
@@ -289,7 +290,7 @@ void binarySearch(int option, std::string parameter, std::vector<ParkingCitation
 			if (sorted[middle_index].fine == std::stof(parameter)) {
 				searched.push_back(sorted[middle_index]);
 				sorted.erase(sorted.begin() + middle_index);
-				binarySearch(option, parameter, sorted, searched);
+				continue;
 			}
 
 			else if (sorted[middle_index].fine < std::stof(parameter)) {
@@ -306,7 +307,7 @@ void binarySearch(int option, std::string parameter, std::vector<ParkingCitation
 			if (sorted[middle_index].year == std::stoi(parameter)) {
 				searched.push_back(sorted[middle_index]);
 				sorted.erase(sorted.begin() + middle_index);
-				binarySearch(option, parameter, sorted, searched);
+				continue;
 			}
 
 			else if (sorted[middle_index].year < std::stoi(parameter)) {
@@ -323,7 +324,7 @@ void binarySearch(int option, std::string parameter, std::vector<ParkingCitation
 			if (sorted[middle_index].month == std::stoi(parameter)) {
 				searched.push_back(sorted[middle_index]);
 				sorted.erase(sorted.begin() + middle_index);
-				binarySearch(option, parameter, sorted, searched);
+				continue;
 			}
 
 			else if (sorted[middle_index].month < std::stoi(parameter)) {
@@ -340,7 +341,7 @@ void binarySearch(int option, std::string parameter, std::vector<ParkingCitation
 			if (sorted[middle_index].day == std::stoi(parameter)) {
 				searched.push_back(sorted[middle_index]);
 				sorted.erase(sorted.begin() + middle_index);
-				binarySearch(option, parameter, sorted, searched);
+				continue;
 			}
 
 			else if (sorted[middle_index].day < std::stoi(parameter)) {
@@ -357,7 +358,7 @@ void binarySearch(int option, std::string parameter, std::vector<ParkingCitation
 			if (sorted[middle_index].time_hour == std::stoi(parameter)) {
 				searched.push_back(sorted[middle_index]);
 				sorted.erase(sorted.begin() + middle_index);
-				binarySearch(option, parameter, sorted, searched);
+				continue;
 			}
 
 			else if (sorted[middle_index].time_hour < std::stoi(parameter)) {
@@ -374,7 +375,7 @@ void binarySearch(int option, std::string parameter, std::vector<ParkingCitation
 			if (sorted[middle_index].time_minute == std::stoi(parameter)) {
 				searched.push_back(sorted[middle_index]);
 				sorted.erase(sorted.begin() + middle_index);
-				binarySearch(option, parameter, sorted, searched);
+				continue;
 			}
 
 			else if (sorted[middle_index].time_minute < std::stoi(parameter)) {

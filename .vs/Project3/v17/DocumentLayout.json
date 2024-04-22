@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{17FDD506-3C0F-4EC0-8311-EDD44D8D41C0}|Project3\\Project3.vcxproj|solutionrelative:Project3\\Sorting.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{17FDD506-3C0F-4EC0-8311-EDD44D8D41C0}|Project3\\Project3.vcxproj|C:\\Users\\noell\\source\\repos\\cop3530_project3\\Project3\\MainPage.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{17FDD506-3C0F-4EC0-8311-EDD44D8D41C0}|Project3\\Project3.vcxproj|solutionrelative:Project3\\MainPage.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{17FDD506-3C0F-4EC0-8311-EDD44D8D41C0}|Project3\\Project3.vcxproj|C:\\Users\\noell\\source\\repos\\cop3530_project3\\Project3\\MultiSort.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{17FDD506-3C0F-4EC0-8311-EDD44D8D41C0}|Project3\\Project3.vcxproj|solutionrelative:Project3\\MultiSort.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17FDD506-3C0F-4EC0-8311-EDD44D8D41C0}|Project3\\Project3.vcxproj|C:\\Users\\noell\\source\\repos\\cop3530_project3\\Project3\\MainPage.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{17FDD506-3C0F-4EC0-8311-EDD44D8D41C0}|Project3\\Project3.vcxproj|solutionrelative:Project3\\MainPage.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{17FDD506-3C0F-4EC0-8311-EDD44D8D41C0}|Project3\\Project3.vcxproj|C:\\Users\\noell\\source\\repos\\cop3530_project3\\Project3\\MainPage.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}|Form",
@@ -60,27 +60,27 @@
               "RelativeDocumentMoniker": "Project3\\Sorting.h",
               "ToolTip": "C:\\Users\\noell\\source\\repos\\cop3530_project3\\Project3\\Sorting.h",
               "RelativeToolTip": "Project3\\Sorting.h",
-              "ViewState": "AQIAAK4AAAAAAAAAAAAAANAAAAAAAAAA",
+              "ViewState": "AQIAAHIBAAAAAAAAAAAAAIUBAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-04-20T22:34:41.993Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MultiSort.h",
               "DocumentMoniker": "C:\\Users\\noell\\source\\repos\\cop3530_project3\\Project3\\MultiSort.h",
               "RelativeDocumentMoniker": "Project3\\MultiSort.h",
               "ToolTip": "C:\\Users\\noell\\source\\repos\\cop3530_project3\\Project3\\MultiSort.h",
               "RelativeToolTip": "Project3\\MultiSort.h",
-              "ViewState": "AQIAADQAAAAAAAAAAAAIwF4AAAAAAAAA",
+              "ViewState": "AQIAAIEAAAAAAAAAAAAAAI0AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-04-20T22:20:45.854Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainPage.h",
               "DocumentMoniker": "C:\\Users\\noell\\source\\repos\\cop3530_project3\\Project3\\MainPage.h",
               "RelativeDocumentMoniker": "Project3\\MainPage.h",
@@ -113,8 +113,7 @@
               "RelativeToolTip": "Project3\\ResultPage.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-20T00:53:21.331Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-20T00:53:21.331Z"
             },
             {
               "$type": "Document",
@@ -126,8 +125,7 @@
               "RelativeToolTip": "Project3\\WelcomePage.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-20T00:52:46.869Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-20T00:52:46.869Z"
             },
             {
               "$type": "Document",
@@ -138,8 +136,7 @@
               "ToolTip": "C:\\Users\\noell\\source\\repos\\cop3530_project3\\Project3\\ResultPage.h [Design]",
               "RelativeToolTip": "Project3\\ResultPage.h [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-20T22:26:20.895Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-04-20T22:26:20.895Z"
             },
             {
               "$type": "Document",
@@ -151,8 +148,7 @@
               "RelativeToolTip": "Project3\\ParkingCitations.h",
               "ViewState": "AQIAAAQAAAAAAAAAAADwv7QAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-20T21:02:34.109Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-20T21:02:34.109Z"
             },
             {
               "$type": "Document",
@@ -163,8 +159,7 @@
               "ToolTip": "C:\\Users\\noell\\source\\repos\\cop3530_project3\\Project3\\WelcomePage.h [Design]",
               "RelativeToolTip": "Project3\\WelcomePage.h [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-20T21:11:42.669Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-04-20T21:11:42.669Z"
             },
             {
               "$type": "Document",
